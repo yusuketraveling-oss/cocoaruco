@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-zen-kaku);
+
+  --color-brand-white: #FDFCF8;
+  --color-brand-navy: #002E4E;
+  --color-brand-earth: #DBB35B;
+  --color-brand-moss: #354230;
+  --color-brand-sandstone: #BFA575;
+  --color-sitter-main: #436573;
+  --color-sitter-sub: #918C7E;
+  --color-sitter-accent: #A47864;
+  --color-taxi-base: #59695F;
+  --color-taxi-sub: #E8C7B6;
+  --color-wedding-nordic: #67869A;
+  --color-wedding-greige: #E7E0D8;
+  --color-text-primary: #333333;
+}
+
+body {
+  font-feature-settings: "palt";
+  letter-spacing: 0.05em;
+  background-color: #FDFCF8;
+  color: #333333;
+}
