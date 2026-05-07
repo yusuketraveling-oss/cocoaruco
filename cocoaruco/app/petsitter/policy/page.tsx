@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import { PolicyChapter } from '@/components/ui/PolicyChapter'
+import { PolicySection } from '@/components/ui/PolicySection'
+import { PolicyCallout } from '@/components/ui/PolicyCallout'
 
 export const metadata: Metadata = {
   title: 'サービスポリシー | cocoaruco ペットシッター',
@@ -61,10 +64,333 @@ export default function PolicyPage() {
 
       {/* ─────────────── 各章 ─────────────── */}
       <article className="max-w-3xl mx-auto px-5 md:px-8 py-12 md:py-16">
-        {/* ここに章 01〜14 が次の指示で追加されます */}
-        <p className="text-sm text-text-primary/40 italic">
-          各章は順次追加されます。
-        </p>
+
+        {/* ── 章 01：ご利用方法について ── */}
+        <PolicyChapter
+          number="01"
+          id="how-to-use"
+          title="ご利用方法について"
+          lead="cocoarucoのペットシッターサービスは、ご家族の暮らしのリズムに合わせて、3つのご利用方法からお選びいただけます。それぞれの特徴と、ご利用にあたって知っておいていただきたいことをまとめています。"
+          toc={[
+            { id: 'plans-regular', label: '定期コース' },
+            { id: 'plans-passport', label: 'パスポート' },
+            { id: 'plans-spot', label: 'スポット利用' },
+            { id: 'plans-meet-and-greet', label: 'Meet & Greet（事前面談）' },
+          ]}
+        >
+          <PolicySection id="plans-regular" title="定期コース">
+            <p>
+              決まった曜日・時間枠で継続的にご利用いただく形態です。私たちが最も大切にしている、いちばんの中心となるご利用方法です。同じ担当チームが繰り返しお伺いするため、その子の暮らしや変化を継続的に見守ることができます。
+            </p>
+            <p>
+              定期コースには、ご利用頻度によって <strong>週3回以上</strong> と <strong>週2回</strong> の2つの区分があります。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              週3回以上の定期コース
+            </h4>
+            <ul>
+              <li>2週間の締め期間内で、2回までキャンセルが可能です（締め日にカウントがリセットされます）</li>
+              <li>キャンセルではなく振替をご希望の場合は、何回でも可能です</li>
+              <li>振替先は当月＋3ヶ月先までの空き枠からお選びいただけます</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              週2回の定期コース
+            </h4>
+            <ul>
+              <li>キャンセルはお受けしておらず、振替のみのご対応となります</li>
+              <li>振替は何回でも可能です（振替先は当月＋3ヶ月先まで）</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              自動予約のしくみ
+            </h4>
+            <p>
+              定期コースをご利用の方は、毎月1日0時に翌月分の予約が自動で確保されます。曜日・時間枠の永続的な変更をご希望の場合は、変更希望日の1週間前までにマイページからお申し出ください。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              解約について
+            </h4>
+            <p>
+              定期コースの解約は、いつでもマイページからお手続きいただけます。解約後、振替済みで未消化のご予約がある場合は失効となります。詳しくは
+              <a href="#cancellation">04. キャンセル・スケジュール変更</a>
+              をご覧ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="plans-passport" title="パスポート">
+            <p>
+              お選びいただいたメニュー10回分を一括事前購入いただき、有効期限内であればカレンダーから自由にご予約いただける形態です。曜日や時間が固定できないご家族や、出張・旅行が多い方におすすめです。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              パスの種類
+            </h4>
+            <p>有効期限の長さに応じて、3種類のパスをご用意しています。</p>
+            <ul>
+              <li><strong>30 Days パス</strong>：購入から30日間有効</li>
+              <li><strong>60 Days パス</strong>：購入から60日間有効</li>
+              <li><strong>シーズン パス</strong>：購入から90日間有効</li>
+            </ul>
+            <p>
+              有効期限が長いほど、1回あたりの単価は少しずつ高くなります。具体的な料金は各エリアの料金ページをご覧ください。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              消化のルール
+            </h4>
+            <ul>
+              <li>1回のシッティングで1回分が消化されます</li>
+              <li>有効期限を過ぎた未消化分は、原則として失効となります</li>
+              <li>キャンセルされた場合の取扱いは、利用形態別の規定に従います（詳しくは<a href="#cancellation">04. キャンセル・スケジュール変更</a>をご覧ください）</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              購入後のキャンセル・返金
+            </h4>
+            <p>
+              パスポートご購入後7日以内かつ未使用の場合に限り、ご購入のキャンセルおよびご返金が可能です。それ以降のご返金はお受けしておりません。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="plans-spot" title="スポット利用">
+            <p>
+              1日程ずつ単発でご利用いただく形態です。お試しでのご利用や、定期的なご依頼が難しい場合のご対応として承っています。
+            </p>
+            <p>
+              スポット利用の料金は、定期コース基準の料金に <strong>1,100円（税込）</strong> を加算した金額となります。継続的なご利用が見込める場合は、定期コースまたはパスポートのほうがお得にご利用いただけます。
+            </p>
+
+            <PolicyCallout variant="info">
+              スポット利用であっても、初回ご利用前には Meet &amp; Greet（事前面談）が必要です。お申し込みの際は、初回サービス日の2週間前までにお申し込みください。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="plans-meet-and-greet" title="Meet & Greet（事前面談）">
+            <p>
+              初回のご利用に先立ち、担当となるスタッフがご自宅を訪問する事前面談です。ペットの性格、住環境、お世話の流れ、入退室の方法、緊急時の取り決めを、一つひとつていねいに確認させていただきます。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              所要時間と料金
+            </h4>
+            <ul>
+              <li>所要時間：60分前後（ペットの頭数や状況により前後します）</li>
+              <li>料金：3,300円（税込）</li>
+              <li>原則として対面で実施しますが、ご事情がある場合はオンラインでの実施もご相談ください</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              お申し込みのタイミング
+            </h4>
+            <p>
+              初回サービス日の2週間前までにお申し込みください。Meet &amp; Greet の完了および当社所定の確認を経て、本予約のご利用が可能となります。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              Meet &amp; Greet で確認させていただくこと
+            </h4>
+            <ul>
+              <li>ペットの性格、健康状態、お食事やお散歩の好み</li>
+              <li>ご自宅への入退室方法（合鍵・キーボックス・スマートロック）</li>
+              <li>緊急時のご連絡先と、かかりつけ動物病院</li>
+              <li>お世話に必要な用品の場所、動線、家電の使い方</li>
+              <li>その他、その子のお世話に大切な情報</li>
+            </ul>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 02：料金について ── */}
+        <PolicyChapter
+          number="02"
+          id="pricing"
+          title="料金について"
+          lead="cocoarucoのペットシッターサービスの料金体系をご案内します。料金はすべて消費税込みの総額表示で、定期コース基準の料金を中心にご案内しています。"
+          toc={[
+            { id: 'pricing-base', label: '基本メニューと料金' },
+            { id: 'pricing-by-plan', label: 'ご利用形態による料金差' },
+            { id: 'pricing-rush', label: '当日・前日予約料金' },
+            { id: 'pricing-keys', label: '鍵に関わる費用' },
+            { id: 'pricing-options', label: 'オプション料金' },
+            { id: 'pricing-tax', label: '消費税の取扱い' },
+          ]}
+        >
+          <PolicySection id="pricing-base" title="基本メニューと料金">
+            <p>
+              cocoarucoのペットシッターサービスには、お世話の内容と時間に応じた4つの基本メニューがあります。下記は <strong>定期コース基準</strong> の料金です。
+            </p>
+
+            <div className="my-6 overflow-x-auto">
+              <table className="w-full text-sm border border-sitter-main/15 rounded-2xl overflow-hidden">
+                <thead className="bg-linen">
+                  <tr>
+                    <th className="text-left px-4 py-3 font-bold text-brand-navy">メニュー</th>
+                    <th className="text-left px-4 py-3 font-bold text-brand-navy">時間</th>
+                    <th className="text-right px-4 py-3 font-bold text-brand-navy">料金（税込）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-sitter-main/10">
+                  <tr>
+                    <td className="px-4 py-3">クイック・ビジット</td>
+                    <td className="px-4 py-3 text-text-primary/70">15分</td>
+                    <td className="px-4 py-3 text-right font-bold">3,300円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">オリジナル・ケア 30分</td>
+                    <td className="px-4 py-3 text-text-primary/70">30分</td>
+                    <td className="px-4 py-3 text-right font-bold">3,300円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">オリジナル・ケア 45分</td>
+                    <td className="px-4 py-3 text-text-primary/70">45分</td>
+                    <td className="px-4 py-3 text-right font-bold">4,400円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">プレミアム・ケア</td>
+                    <td className="px-4 py-3 text-text-primary/70">60〜75分</td>
+                    <td className="px-4 py-3 text-right font-bold">5,500円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">寝かしつけプラン</td>
+                    <td className="px-4 py-3 text-text-primary/70">60〜90分</td>
+                    <td className="px-4 py-3 text-right font-bold">7,700円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">追加 15分</td>
+                    <td className="px-4 py-3 text-text-primary/70">+15分</td>
+                    <td className="px-4 py-3 text-right font-bold">1,100円</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              各メニューの内容（健康チェック、お食事、お散歩、コミュニケーション等）は、ご利用案内ページにて詳しくご紹介しています。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="pricing-by-plan" title="ご利用形態による料金差">
+            <p>
+              同じメニューでも、ご利用形態によって料金が異なります。継続的にご利用いただく方ほど、低い単価でご利用いただける設計です。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              定期コース（基準料金）
+            </h4>
+            <p>上記「基本メニューと料金」の料金そのものでご利用いただけます。</p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              パスポート（10回一括購入）
+            </h4>
+            <p>
+              パスの有効期限により、1回あたりの単価が変わります。具体的な料金は各エリアの料金ページにてご確認ください。
+            </p>
+            <ul>
+              <li>30 Days パス：定期コース料金 + 約220円/回</li>
+              <li>60 Days パス：定期コース料金 + 約330円/回</li>
+              <li>シーズン パス（90日）：定期コース料金 + 約550円/回</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              スポット利用（単発）
+            </h4>
+            <p>
+              定期コース基準料金に <strong>+1,100円</strong> が加算されます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="pricing-rush" title="当日・前日予約料金">
+            <p>
+              前日18時以降の新規ご予約には、特急手配のための追加料金として <strong>+1,100円（税込）</strong> が加算されます。
+            </p>
+            <p>
+              急なご出張や体調不良など、やむを得ないご事情はもちろんございますが、できる限りお早めのご予約をおすすめしています。
+            </p>
+
+            <PolicyCallout variant="info">
+              既存ご予約の時間調整や担当者変更については、追加料金は発生しません（キャンセル規定に従います）。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="pricing-keys" title="鍵に関わる費用">
+            <p>
+              ご自宅への入退室方法（スマートロック・キーボックス・合鍵）によって、加算される費用が異なります。詳しい運用は
+              <a href="#keys">06. 鍵のお預かりと入退室について</a>
+              をご覧ください。
+            </p>
+
+            <div className="my-6 overflow-x-auto">
+              <table className="w-full text-sm border border-sitter-main/15 rounded-2xl overflow-hidden">
+                <thead className="bg-linen">
+                  <tr>
+                    <th className="text-left px-4 py-3 font-bold text-brand-navy">項目</th>
+                    <th className="text-right px-4 py-3 font-bold text-brand-navy">料金（税込）</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-sitter-main/10">
+                  <tr>
+                    <td className="px-4 py-3">スマートロック・指紋認証でのご入室</td>
+                    <td className="px-4 py-3 text-right">加算なし</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">キーボックスのレンタル</td>
+                    <td className="px-4 py-3 text-right">無料（送料880円のみ）</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">合鍵を2本以上お預けの場合</td>
+                    <td className="px-4 py-3 text-right">加算なし</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">合鍵を1本のみお預けの場合</td>
+                    <td className="px-4 py-3 text-right font-bold">+440円/回</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">長期保管サービス（年額）</td>
+                    <td className="px-4 py-3 text-right">2,200円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">合鍵の郵送返却（普通郵便/クリックポスト）</td>
+                    <td className="px-4 py-3 text-right">330円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3">合鍵の郵送返却（簡易書留/こねこ便）</td>
+                    <td className="px-4 py-3 text-right">660円</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </PolicySection>
+
+          <PolicySection id="pricing-options" title="オプション料金">
+            <p>
+              ご利用の目的に応じて、各種オプションサービスをご用意しています。
+            </p>
+
+            <ul>
+              <li><strong>お買物代行</strong>：1,100円（税込）/ 回 ※フード・トイレ用品等が不足した場合にご利用いただけます</li>
+              <li><strong>追加ペットケア</strong>：植物の水やり、観賞魚のお世話、郵便物の取り込み等のご相談</li>
+              <li><strong>そのほか</strong>：個別のご相談はお問い合わせください</li>
+            </ul>
+
+            <p>
+              オプション料金の詳細は、各エリアの料金ページにてご確認いただけます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="pricing-tax" title="消費税の取扱い">
+            <p>
+              本サービスサイトに表示している料金は、すべて消費税込みの総額表示です。
+            </p>
+            <p>
+              インボイス制度に対応した適格請求書として、領収書をマイページからダウンロードいただけます。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 03〜14 は順次追加されます ── */}
+
       </article>
 
       {/* ─────────────── 末尾の補足（linen 背景に静かに語りかける） ─────────────── */}
