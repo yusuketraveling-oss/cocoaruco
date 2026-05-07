@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: 'ペットシッターサービス | cocoaruco',
   description:
-    '大阪を中心に、その子の暮らしをそのまま大切にするペットシッターサービスをお届けしています。お留守番の時間に、ほんの少しのやさしさを。',
+    '大阪を中心に、お仕事中の平日の日中、定期的にお邪魔して、その子の心地よい時間を届けるペットシッターサービス。お留守番のお世話の代行ではなく、その子の毎日に「向き合う時間」をそっと差し挟みます。',
 }
 
 const PLANS = [
@@ -21,25 +21,25 @@ const PLANS = [
     name: 'オリジナル・ケア',
     duration: '30分・45分',
     description:
-      '定期利用の中心となるプラン。健康チェック・お食事・お散歩などの基本ケアと、その子と向き合う時間をバランスよく組み合わせます。',
+      '私たちのサービスの中心となる、定期利用のためのプラン。健康チェックやお食事といった基本ケアを丁寧に済ませた上で、訪問時間の半分を、その子と向き合う時間にあてます。お散歩、遊び、コミュニケーション――その日のその子に合わせて、心地よい刺激を届けます。',
   },
   {
     name: 'プレミアム・ケア',
     duration: '60〜75分',
     description:
-      '多頭飼育、シニア期、持病のあるその子のケアなど、より厚みのあるサポートが必要な場面のためのプランです。',
+      'より厚みのあるケアが必要な場面のためのプラン。多頭飼育のご家庭、シニア期や持病のあるその子の介護的なサポート、じっくり時間をかけた関わりをご希望の場合に、ご利用いただけます。',
   },
   {
     name: '寝かしつけプラン',
     duration: '60〜90分',
     description:
-      'ご帰宅が遅くなる日に、その子が穏やかに眠りにつくまで寄り添います。一日の終わりの不安な時間を、できるだけ短く。',
+      'ご帰宅が遅くなる日のための、特別なプラン。一日の終わりに、その子がひとりで不安そうに過ごしている時間をできるだけ短くするために、その子が穏やかに眠りにつくまで、そばに寄り添います。',
   },
   {
     name: 'クイック・ビジット',
     duration: '15分',
     description:
-      'トイレチェック、お薬の投与など、ピンポイントのお世話が必要な場面のための短時間プランです。',
+      'トイレチェック、お薬の投与など、ピンポイントのお世話が必要な場面のための短時間プラン。スポット利用またはパスポート（10回券）でご利用いただけます。',
   },
 ]
 
@@ -48,19 +48,19 @@ const STEPS = [
     number: '01',
     title: '会員登録・お問い合わせ',
     description:
-      'マイページからご登録いただき、ペットの情報やご希望のサービス内容をお知らせください。',
+      'マイページからご登録いただき、その子のことやご希望のサービス内容をお聞かせください。',
   },
   {
     number: '02',
     title: 'Meet & Greet（事前面談）',
     description:
-      '担当となるスタッフがご自宅を訪問。ペットの性格、住環境、お世話の流れを一つひとつ確認します。',
+      '担当となるスタッフがご自宅を訪問。その子の性格、住環境、お世話の流れを、一つひとつご一緒に確認します。',
   },
   {
     number: '03',
     title: 'ご予約・シッティング開始',
     description:
-      'マイページから予約カレンダーがご利用可能に。シッティング後は、その日のレポートをお届けします。',
+      'マイページから定期コースのご予約ができるようになります。シッティング後は、その日のレポートをお届けします。',
   },
 ]
 
@@ -90,7 +90,7 @@ const COMMITMENTS = [
     icon: Heart,
     title: 'Meet & Greet 必須',
     description:
-      '初回ご利用前に必ず事前面談を実施。お互いに納得した上でサービスを開始します。',
+      '初回ご利用前に必ず事前面談を実施。お互いに納得した上で、サービスを始めます。',
   },
   {
     icon: Clock,
@@ -110,15 +110,15 @@ export default function PetSitterPage() {
             Pet Sitter
           </p>
           <h1 className="text-2xl font-medium text-text-primary leading-tight tracking-tight">
-            その子の暮らしを、
+            その子の暮らしに、
             <br />
-            そのまま大切に。
+            心地よい時間を、そっと。
           </h1>
           <p className="mt-5 text-sm text-text-primary leading-relaxed">
-            お留守番のあいだ、その子のテリトリーをそのままに、毎日の暮らしにそっと寄り添う形を選びました。
+            お仕事中の平日の日中、定期的にお邪魔して、その子の毎日に「向き合う時間」をそっと差し挟みます。
           </p>
           <p className="mt-4 text-sm text-text-primary leading-relaxed">
-            匂い、音、光、時間の流れやリズム——そのすべてをできるだけ普段どおりに保ちながら、必要なお世話だけを丁寧にお手伝いします。
+            お留守番のお世話の代行ではなく、退屈やストレスを抱えがちなその子の心が、自然体で過ごせる時間を整えるためのサービスです。
           </p>
           <div className="mt-8">
             <CTAButton href="/contact" variant="primary" size="block">
@@ -133,26 +133,50 @@ export default function PetSitterPage() {
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="Our Philosophy"
-            title="向き合う時間を、確保する。"
+            title="向き合う時間を、訪問時間の半分に。"
           />
           <div className="mt-5 space-y-4 text-sm text-text-primary leading-relaxed">
             <p>
-              訪問時間のなかで、健康チェックやお食事といった基本ケアをきちんと済ませた上で、訪問時間の半分は、その子と向き合う時間にあてています。
+              訪問時間のなかで、健康チェックやお食事といった基本ケアを丁寧に済ませた上で、訪問時間の半分は、その子と向き合う時間にあてています。
             </p>
             <p>
               お散歩、遊び、コミュニケーション、ただ静かに見守る時間——その日のその子に合わせて、向き合い方を柔軟に変えていきます。
+            </p>
+            <p>
+              神経質な子、そっとしておいてほしい子には、空気のように静かにお世話だけを済ませて帰ることもあります。長く向き合うことが正解の日もあれば、静かに引くことが正解の日もある。一律のルールではなく、その子のリズムに合わせて、関わり方を選びます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ペットカメラ越しの「ごめんね」への寄り添い */}
+      <section className="bg-bg py-12">
+        <div className="max-w-[430px] mx-auto px-4">
+          <SectionHeader
+            eyebrow="For Your Family"
+            title="ペットカメラ越しの「ごめんね」に、そっと寄り添います。"
+          />
+          <div className="mt-5 space-y-4 text-sm text-text-primary leading-relaxed">
+            <p>
+              お仕事中、お昼休みのカフェ、出張先のホテル——スマートフォンで、お留守番中のその子の様子を見る時間。
+            </p>
+            <p>
+              静かに佇んでいる。ずっと寝ている。何かを待っているように、ドアの方を眺めている。そんな姿を画面越しに見たとき、ご家族の心の中には、たいてい小さな声が浮かびます。「ごめんね」と。
+            </p>
+            <p>
+              私たちのペットシッターは、この「ごめんね」にそっと寄り添うサービスでありたいと考えています。お留守番の長い時間のなかに、ほんの少しだけ「家族以外の誰かと過ごす、心地よい時間」を差し挟むこと。それが、私たちが届けたい価値です。
             </p>
           </div>
         </div>
       </section>
 
       {/* プラン紹介 */}
-      <section className="bg-bg py-12">
+      <section className="bg-surface py-12 border-y border-border-subtle">
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="Service Plans"
-            title="その子に合わせた、4つのプラン。"
-            lead="ご家族の暮らしのリズムと、その子の状態に応じて、組み合わせてご利用いただけます。"
+            title="プランの全景。"
+            lead="週の中心は定期のオリジナル・ケアで支え、特別な日にはプレミアム・ケアや寝かしつけプランを。スポット利用やパスポート（10回券）も、必要に応じてご利用いただけます。"
           />
           <div className="mt-8 space-y-4">
             {PLANS.map((plan) => (
@@ -171,11 +195,14 @@ export default function PetSitterPage() {
               </GlassCard>
             ))}
           </div>
+          <p className="mt-6 text-xs text-text-secondary leading-relaxed">
+            往復交通費は別立てではなく、料金に含まれています。お仕事中の平日の日中、定期的なご訪問にご満足いただける、月単位での暮らしのリズムを一緒に整えていく設計です。
+          </p>
         </div>
       </section>
 
       {/* ご利用の流れ */}
-      <section className="bg-surface py-12 border-y border-border-subtle">
+      <section className="bg-bg py-12">
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="How It Works"
@@ -207,12 +234,12 @@ export default function PetSitterPage() {
       </section>
 
       {/* 対応エリア */}
-      <section className="bg-bg py-12">
+      <section className="bg-surface py-12 border-y border-border-subtle">
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="Service Area"
             title="大阪・関西を中心に。"
-            lead="地域に住むスタッフが、その地域に馴染みながらお世話します。"
+            lead="地域に住むスタッフが、その地域に馴染みながら、その子の毎日にお邪魔します。"
           />
           <ul className="mt-6 space-y-3">
             {AREAS.map((area) => (
@@ -238,11 +265,11 @@ export default function PetSitterPage() {
       </section>
 
       {/* 安心の取り組み */}
-      <section className="bg-surface py-12 border-y border-border-subtle">
+      <section className="bg-bg py-12">
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="Our Commitment"
-            title="安心していただくために。"
+            title="安心して、お任せいただくために。"
           />
           <div className="mt-8 space-y-4">
             {COMMITMENTS.map((item) => {
@@ -272,7 +299,7 @@ export default function PetSitterPage() {
       </section>
 
       {/* 末尾CTA */}
-      <section className="bg-bg py-16">
+      <section className="bg-surface py-16 border-t border-border-subtle">
         <div className="max-w-[430px] mx-auto px-4 text-center">
           <h2 className="text-xl font-medium text-text-primary leading-tight tracking-tight">
             まずは、お話を
@@ -280,11 +307,11 @@ export default function PetSitterPage() {
             聞かせてください。
           </h2>
           <p className="mt-4 text-sm text-text-primary leading-relaxed">
-            Meet &amp; Greet（事前面談）から始まります。
+            cocoarucoのペットシッターは、Meet &amp; Greet（事前面談）から始まります。
             <br />
-            ペットの個性、ご家族の生活リズム、住環境——
+            その子の個性、ご家族の暮らしのリズム、住環境——
             <br />
-            一つひとつ、お話を伺いながら、最適なご利用方法をご提案します。
+            一つひとつ、ご一緒に確認しながら、無理のないご利用方法を考えます。
           </p>
           <div className="mt-8 space-y-3">
             <CTAButton href="/contact" variant="primary" size="block">
