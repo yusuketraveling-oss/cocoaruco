@@ -3,8 +3,8 @@ import { GlassCard } from '@/components/ui/GlassCard'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { CTAButton } from '@/components/ui/CTAButton'
 import { ServiceBadge } from '@/components/ui/ServiceBadge'
-import SectionCalendar from '@/components/area/SectionCalendar'
-import PricingTabs from '@/components/area/PricingTabs'
+import { SectionCalendar } from '@/components/area/SectionCalendar'
+import { PricingTabs } from '@/components/area/PricingTabs'
 
 const staff = [
   {
@@ -105,7 +105,7 @@ export default function OsakaPage() {
             title="セクションと空き状況"
             lead="郵便番号で対応セクションを確認できます"
           />
-          <SectionCalendar />
+          <SectionCalendar sectionName="大阪市" status="recruiting" />
         </div>
       </section>
 

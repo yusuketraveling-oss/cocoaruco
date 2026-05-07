@@ -1,117 +1,68 @@
 'use client'
 
 import { useState } from 'react'
-import { X } from '@phosphor-icons/react'
+import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr'
 
-const sections = [
-  { name: '梅田・北区', href: '/petsitter/osaka/section/kita' },
-  { name: '天王寺・阿倍野', href: '/petsitter/osaka/section/tennoji' },
-  { name: 'なんば・中央区', href: '/petsitter/osaka/section/namba' },
-  { name: '住吉・住之江', href: '/petsitter/osaka/section/sumiyoshi' },
-  { name: '鶴見・城東', href: '/petsitter/osaka/section/tsurumi' },
-]
-
-type Result = 'matched' | 'unmatched' | null
-
-export default function ZipCodeSearch() {
+export function ZipCodeSearch() {
   const [zip, setZip] = useState('')
-  const [modalOpen, setModalOpen] = useState(false)
-  const [result, setResult] = useState<Result>(null)
+  const [result, setResult] = useState<'idle' | 'pending'>('idle')
 
   const handleSearch = () => {
-    if (!zip.trim()) return
-    // ダミー：常に非対応
-    setResult('unmatched')
-    setModalOpen(true)
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') handleSearch()
+    setResult('pending')
   }
 
   return (
-    <div>
-      {/* Input row */}
-      <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
+    <div className="rounded-lg bg-surface border border-border-subtle p-5">
+      <h3 className="text-base font-medium text-text-primary mb-2">
+        郵便番号から確認
+      </h3>
+      <p className="text-xs text-text-secondary leading-relaxed mb-4">
+        ご自宅の郵便番号を入力してください。対応エリアかどうかをご確認いただけます。
+      </p>
+
+      <div className="flex gap-2">
         <input
           type="text"
           value={zip}
-          onChange={(e) => setZip(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="例：530-0001"
+          onChange={(e) => setZip(e.target.value.replace(/[^0-9-]/g, ''))}
+          onKeyDown={(e) => e.key === 'Enter' && zip.length >= 7 && handleSearch()}
+          placeholder="123-4567"
           maxLength={8}
-          className="flex-1 rounded-full px-6 py-3 border border-sitter-sub/30 bg-white text-ink placeholder:text-sitter-sub/40 focus:outline-none focus:ring-2 focus:ring-sitter-main/40"
+          className="
+            flex-1 px-4 py-3
+            bg-surface
+            border-[1.5px] border-border
+            rounded-md
+            text-base text-text-primary
+            placeholder:text-text-muted
+            focus:outline-none focus:border-primary
+            transition-colors duration-150
+          "
         />
         <button
+          type="button"
           onClick={handleSearch}
-          className="rounded-full font-bold px-8 py-3 text-sm bg-navy text-white hover:bg-[#001f35] transition-all shrink-0"
+          disabled={zip.length < 7}
+          className="
+            inline-flex items-center justify-center gap-2
+            px-5 py-3
+            bg-primary text-text-inverse
+            rounded-md
+            text-sm font-medium tracking-wide
+            transition-colors duration-150
+            hover:bg-primary-hover
+            disabled:opacity-40 disabled:cursor-not-allowed
+          "
         >
-          確認する
+          <MagnifyingGlass size={16} weight="regular" />
+          確認
         </button>
       </div>
 
-      {/* Section cards */}
-      <div className="mt-10">
-        <p className="text-sm font-bold text-sitter-sub mb-4 tracking-wider uppercase">大阪市内のセクション</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {sections.map((s) => (
-            <a
-              key={s.href}
-              href={s.href}
-              className="group block rounded-2xl border border-white/60 bg-[#FDFCF8]/75 backdrop-blur-md p-5 transition-all ring-2 ring-transparent hover:ring-sitter-main shadow-[0_4px_16px_-4px_rgba(0,46,78,0.06)]"
-            >
-              <p className="font-bold text-navy group-hover:text-sitter-main transition-colors">
-                {s.name}
-              </p>
-              <p className="text-xs text-sitter-sub mt-1">空き状況を見る →</p>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal */}
-      {modalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/40 backdrop-blur-sm px-4"
-          onClick={() => setModalOpen(false)}
-        >
-          <div
-            className="bg-white rounded-[40px] p-10 max-w-sm w-full shadow-[0_24px_60px_-12px_rgba(0,46,78,0.2)] relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute top-5 right-5 text-sitter-sub hover:text-navy transition-colors"
-              aria-label="閉じる"
-            >
-              <X size={20} />
-            </button>
-
-            {result === 'matched' && (
-              <div className="flex flex-col gap-4">
-                <p className="text-xl font-bold text-sitter-main">◎ ご利用いただけます！</p>
-              </div>
-            )}
-
-            {result === 'unmatched' && (
-              <div className="flex flex-col gap-4">
-                <p className="text-lg font-bold text-sitter-accent">
-                  現在このエリアは対応しておりません
-                </p>
-                <p className="text-sm text-sitter-sub leading-relaxed">
-                  サービスエリアは順次拡大しています。<br />
-                  Instagramをフォローして最新情報をお受け取りください。
-                </p>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="mt-2 rounded-full font-bold px-6 py-2 text-sm bg-linen text-navy hover:bg-sitter-sub/10 transition-all"
-                >
-                  閉じる
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+      {result === 'pending' && (
+        <p className="mt-3 text-xs text-text-muted">
+          ※ 検索機能は準備中です。お電話・お問い合わせフォームよりお気軽にお問い合わせください。
+        </p>
       )}
     </div>
   )

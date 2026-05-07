@@ -1,110 +1,142 @@
 'use client'
 
-import { useState } from 'react'
-import { CaretLeft, CaretRight } from '@phosphor-icons/react'
+import { CaretLeft, CaretRight } from '@phosphor-icons/react/dist/ssr'
 
-const DAY_LABELS = ['月', '火', '水', '木', '金', '土', '日']
+type SlotStatus = 'available' | 'few' | 'full' | 'closed'
 
-const slots = [
-  { label: '時間枠 A', time: '9:00〜12:00' },
-  { label: '時間枠 B', time: '12:00〜15:00' },
-  { label: '時間枠 C', time: '15:00〜18:00' },
-  { label: '時間枠 D', time: '18:00〜21:00' },
-]
-
-type Status = 'available' | 'few' | 'full'
-
-function getStatus(weekOffset: number, dayIdx: number, slotIdx: number): Status {
-  const val = Math.abs((weekOffset * 41 + dayIdx * 17 + slotIdx * 11) % 10)
-  if (val < 5) return 'available'
-  if (val < 8) return 'few'
-  return 'full'
+type Slot = {
+  date: string
+  block: 'A' | 'B' | 'C' | 'D'
+  status: SlotStatus
 }
 
-function getMondayOfWeek(offset: number): Date {
-  const now = new Date()
-  const day = now.getDay()
-  const diff = day === 0 ? -6 : 1 - day
-  const monday = new Date(now)
-  monday.setDate(now.getDate() + diff + offset * 7)
-  monday.setHours(0, 0, 0, 0)
-  return monday
+type WeeklyCalendarProps = {
+  startDate: string
+  slots: Slot[]
+  onWeekChange?: (direction: 'prev' | 'next') => void
 }
 
-const statusConfig: Record<Status, { label: string; className: string }> = {
-  available: { label: '空き', className: 'bg-sitter-main/20 text-sitter-main' },
-  few:       { label: '残りわずか', className: 'bg-amber/20 text-amber' },
-  full:      { label: '満員', className: 'bg-gray-200 text-gray-400' },
+const BLOCK_LABELS: Record<'A' | 'B' | 'C' | 'D', string> = {
+  A: '早番A',
+  B: '早番B',
+  C: '遅番C',
+  D: '遅番D',
 }
 
-export default function WeeklyCalendar() {
-  const [weekOffset, setWeekOffset] = useState(0)
+const BLOCK_TIMES: Record<'A' | 'B' | 'C' | 'D', string> = {
+  A: '7:00〜10:00',
+  B: '10:00〜13:00',
+  C: '13:00〜16:00',
+  D: '16:00〜19:00',
+}
 
-  const monday = getMondayOfWeek(weekOffset)
-  const weekDates = Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(monday)
-    d.setDate(monday.getDate() + i)
-    return d
+const STATUS_STYLES: Record<SlotStatus, string> = {
+  available: 'bg-success-bg text-success border-success/30',
+  few: 'bg-warning-bg text-warning border-warning/30',
+  full: 'bg-surface-sunken text-text-muted border-border',
+  closed: 'bg-bg text-text-muted/50 border-border-subtle',
+}
+
+const STATUS_LABELS: Record<SlotStatus, string> = {
+  available: '◯',
+  few: '△',
+  full: '×',
+  closed: '−',
+}
+
+export function WeeklyCalendar({
+  startDate,
+  slots,
+  onWeekChange,
+}: WeeklyCalendarProps) {
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const date = new Date(startDate)
+    date.setDate(date.getDate() + i)
+    return date
   })
 
-  const fmt = (d: Date) => `${d.getMonth() + 1}/${d.getDate()}`
+  const formatDate = (date: Date) => {
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const weekday = ['日', '月', '火', '水', '木', '金', '土'][date.getDay()]
+    return { md: `${month}/${day}`, weekday }
+  }
+
+  const getSlot = (date: Date, block: 'A' | 'B' | 'C' | 'D'): Slot | undefined => {
+    const dateStr = date.toISOString().split('T')[0]
+    return slots.find((s) => s.date === dateStr && s.block === block)
+  }
 
   return (
-    <div>
-      {/* Week nav */}
-      <div className="flex items-center justify-between mb-6">
+    <div className="rounded-lg bg-surface border border-border-subtle p-4">
+      <div className="flex items-center justify-between mb-4">
         <button
-          onClick={() => setWeekOffset((w) => w - 1)}
-          className="flex items-center gap-1 text-sm font-bold text-sitter-sub hover:text-sitter-main transition-colors px-4 py-2 rounded-full hover:bg-sitter-main/10"
+          type="button"
+          onClick={() => onWeekChange?.('prev')}
+          aria-label="前の週"
+          className="w-9 h-9 flex items-center justify-center text-text-secondary hover:text-text-primary"
         >
-          <CaretLeft size={16} />
-          前の週
+          <CaretLeft size={18} weight="regular" />
         </button>
-        <span className="text-sm font-bold text-navy">
-          {fmt(weekDates[0])}（月）〜 {fmt(weekDates[6])}（日）
-        </span>
+        <p className="text-xs font-medium text-text-secondary tracking-wide">
+          {formatDate(days[0]).md} 〜 {formatDate(days[6]).md}
+        </p>
         <button
-          onClick={() => setWeekOffset((w) => w + 1)}
-          className="flex items-center gap-1 text-sm font-bold text-sitter-sub hover:text-sitter-main transition-colors px-4 py-2 rounded-full hover:bg-sitter-main/10"
+          type="button"
+          onClick={() => onWeekChange?.('next')}
+          aria-label="次の週"
+          className="w-9 h-9 flex items-center justify-center text-text-secondary hover:text-text-primary"
         >
-          次の週
-          <CaretRight size={16} />
+          <CaretRight size={18} weight="regular" />
         </button>
       </div>
 
-      {/* Calendar grid */}
-      <div className="overflow-x-auto rounded-2xl border border-white/60 bg-[#FDFCF8]/75 shadow-[0_8px_24px_-4px_rgba(0,46,78,0.06)]">
-        <table className="w-full min-w-[640px] border-collapse">
+      <div className="overflow-x-auto -mx-4 px-4">
+        <table className="w-full text-xs border-separate border-spacing-1">
           <thead>
-            <tr className="border-b border-sitter-sub/10">
-              <th className="py-3 px-4 text-xs font-bold text-sitter-sub text-left w-32">時間枠</th>
-              {weekDates.map((d, i) => (
-                <th key={i} className="py-3 px-2 text-xs font-bold text-center">
-                  <span className={`block ${i === 5 ? 'text-sitter-main' : i === 6 ? 'text-sitter-accent' : 'text-navy'}`}>
-                    {DAY_LABELS[i]}
-                  </span>
-                  <span className="text-sitter-sub font-normal">{fmt(d)}</span>
-                </th>
-              ))}
+            <tr>
+              <th className="text-left text-text-muted font-medium pb-2"></th>
+              {days.map((date, i) => {
+                const { md, weekday } = formatDate(date)
+                return (
+                  <th
+                    key={i}
+                    className="text-center font-medium pb-2 min-w-[36px]"
+                  >
+                    <div className="text-[10px] text-text-muted">{weekday}</div>
+                    <div className="text-text-primary">{md.split('/')[1]}</div>
+                  </th>
+                )
+              })}
             </tr>
           </thead>
           <tbody>
-            {slots.map((slot, slotIdx) => (
-              <tr key={slotIdx} className="border-b border-sitter-sub/10 last:border-0">
-                <td className="py-4 px-4">
-                  <p className="text-xs font-bold text-navy">{slot.label}</p>
-                  <p className="text-xs text-sitter-sub">{slot.time}</p>
-                </td>
-                {Array.from({ length: 7 }, (_, dayIdx) => {
-                  const status = getStatus(weekOffset, dayIdx, slotIdx)
-                  const cfg = statusConfig[status]
+            {(['A', 'B', 'C', 'D'] as const).map((block) => (
+              <tr key={block}>
+                <th className="text-left pr-2 pt-1 align-top">
+                  <div className="text-[10px] font-medium text-text-secondary tracking-wide">
+                    {BLOCK_LABELS[block]}
+                  </div>
+                  <div className="text-[10px] text-text-muted">
+                    {BLOCK_TIMES[block]}
+                  </div>
+                </th>
+                {days.map((date, i) => {
+                  const slot = getSlot(date, block)
+                  const status: SlotStatus = slot?.status ?? 'closed'
                   return (
-                    <td key={dayIdx} className="py-4 px-2 text-center">
-                      <span
-                        className={`inline-block rounded-full px-2 py-1 text-xs font-bold ${cfg.className}`}
+                    <td key={i} className="p-0 text-center">
+                      <div
+                        className={`
+                          w-full aspect-square min-h-[36px]
+                          rounded-md border
+                          flex items-center justify-center
+                          font-medium
+                          ${STATUS_STYLES[status]}
+                        `}
                       >
-                        {cfg.label}
-                      </span>
+                        {STATUS_LABELS[status]}
+                      </div>
                     </td>
                   )
                 })}
@@ -114,9 +146,20 @@ export default function WeeklyCalendar() {
         </table>
       </div>
 
-      <p className="mt-4 text-xs text-sitter-sub text-center">
-        ※ 空き状況はリアルタイムでは更新されません。最新情報はお問い合わせください。
-      </p>
+      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-text-secondary">
+        <span className="flex items-center gap-1">
+          <span className="w-3 h-3 rounded-sm bg-success-bg border border-success/30" />
+          空きあり
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-3 h-3 rounded-sm bg-warning-bg border border-warning/30" />
+          残りわずか
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-3 h-3 rounded-sm bg-surface-sunken border border-border" />
+          満枠
+        </span>
+      </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import MgrForm from '@/components/area/MgrForm'
+import { MgrForm } from '@/components/area/MgrForm'
 
 export default function MgrPage() {
   return (
