@@ -11,59 +11,56 @@ export const metadata: Metadata = {
 
 export default function PolicyPage() {
   return (
-    <main className="bg-white">
-      {/* ─────────────── ヒーロー + 目次（linen の連続セクション） ─────────────── */}
-      <section className="bg-linen">
-        {/* ヒーロー部分 */}
-        <div className="max-w-3xl mx-auto px-5 md:px-8 pt-20 md:pt-28 pb-12 md:pb-16">
-          <p className="text-xs tracking-widest text-amber font-bold mb-5 uppercase">
+    <main className="bg-bg">
+      {/* ─────────────── ヒーロー ─────────────── */}
+      <section className="bg-bg pt-12 pb-8">
+        <div className="max-w-[430px] mx-auto px-4">
+          <p className="text-xs font-medium text-text-secondary tracking-wider uppercase mb-3">
             Service Policy
           </p>
-          <h1 className="text-3xl md:text-4xl font-bold text-brand-navy leading-tight tracking-wide">
+          <h1 className="text-2xl font-medium text-text-primary leading-tight tracking-tight">
             サービスポリシー
           </h1>
-          <p className="mt-6 text-sm md:text-base text-text-primary leading-loose">
+          <p className="mt-5 text-sm text-text-primary leading-relaxed">
             cocoarucoのペットシッターサービスについて、ご利用方法・料金・お支払い・キャンセル・鍵のお預かり・緊急時の対応など、ご利用にあたって知っておいていただきたいことを体系的にまとめています。
           </p>
-          <p className="mt-4 text-sm md:text-base text-text-primary leading-loose">
+          <p className="mt-3 text-sm text-text-primary leading-relaxed">
             ご利用前にお気になる項目から、お読みください。
           </p>
-
-          {/* メタ情報 */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-text-primary/60">
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] text-text-muted">
             <span>最終更新日：2026年4月1日</span>
             <span aria-hidden="true">·</span>
             <span>株式会社ココアルコ</span>
           </div>
         </div>
-
-        {/* 目次部分（白カード、linen 背景の中に浮かべる） */}
-        <div className="max-w-3xl mx-auto px-5 md:px-8 pb-20 md:pb-28">
-          <div className="rounded-2xl bg-white border border-sitter-main/10 p-6 md:p-8">
-            <p className="text-xs tracking-widest text-sitter-accent font-bold mb-5 uppercase">
-              目次
-            </p>
-            <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
-              {CHAPTERS.map((c) => (
-                <li key={c.id}>
-                  <a
-                    href={`#${c.id}`}
-                    className="flex items-baseline gap-3 py-2 text-sm text-brand-navy hover:text-sitter-main transition-colors"
-                  >
-                    <span className="text-[10px] tracking-widest text-sitter-accent font-bold shrink-0 pt-0.5">
-                      {c.number}
-                    </span>
-                    <span className="leading-relaxed">{c.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
       </section>
 
+      {/* ─────────────── 目次 ─────────────── */}
+      <div className="max-w-[430px] mx-auto px-4 pb-12">
+        <div className="rounded-lg bg-surface border border-border-subtle p-5">
+          <p className="text-xs font-medium text-text-secondary tracking-wider uppercase mb-4">
+            目次
+          </p>
+          <ol className="space-y-1">
+            {CHAPTERS.map((c) => (
+              <li key={c.id}>
+                <a
+                  href={`#${c.id}`}
+                  className="flex items-baseline gap-3 py-2 text-sm text-text-primary hover:text-primary transition-colors"
+                >
+                  <span className="text-[10px] font-medium text-text-secondary tracking-wider shrink-0 pt-0.5">
+                    {c.number}
+                  </span>
+                  <span className="leading-relaxed">{c.title}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
       {/* ─────────────── 各章 ─────────────── */}
-      <article className="max-w-3xl mx-auto px-5 md:px-8 py-12 md:py-16">
+      <article className="max-w-[430px] mx-auto px-4 py-8">
 
         {/* ── 章 01：ご利用方法について ── */}
         <PolicyChapter
@@ -86,7 +83,7 @@ export default function PolicyPage() {
               定期コースには、ご利用頻度によって <strong>週3回以上</strong> と <strong>週2回</strong> の2つの区分があります。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               週3回以上の定期コース
             </h4>
             <ul>
@@ -95,7 +92,7 @@ export default function PolicyPage() {
               <li>振替先は当月＋3ヶ月先までの空き枠からお選びいただけます</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               週2回の定期コース
             </h4>
             <ul>
@@ -103,19 +100,19 @@ export default function PolicyPage() {
               <li>振替は何回でも可能です（振替先は当月＋3ヶ月先まで）</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               自動予約のしくみ
             </h4>
             <p>
               定期コースをご利用の方は、毎月1日0時に翌月分の予約が自動で確保されます。曜日・時間枠の永続的な変更をご希望の場合は、変更希望日の1週間前までにマイページからお申し出ください。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               解約について
             </h4>
             <p>
               定期コースの解約は、いつでもマイページからお手続きいただけます。解約後、振替済みで未消化のご予約がある場合は失効となります。詳しくは
-              <a href="#cancellation">04. キャンセル・スケジュール変更</a>
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
               をご覧ください。
             </p>
           </PolicySection>
@@ -125,7 +122,7 @@ export default function PolicyPage() {
               お選びいただいたメニュー10回分を一括事前購入いただき、有効期限内であればカレンダーから自由にご予約いただける形態です。曜日や時間が固定できないご家族や、出張・旅行が多い方におすすめです。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               パスの種類
             </h4>
             <p>有効期限の長さに応じて、3種類のパスをご用意しています。</p>
@@ -138,16 +135,16 @@ export default function PolicyPage() {
               有効期限が長いほど、1回あたりの単価は少しずつ高くなります。具体的な料金は各エリアの料金ページをご覧ください。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               消化のルール
             </h4>
             <ul>
               <li>1回のシッティングで1回分が消化されます</li>
               <li>有効期限を過ぎた未消化分は、原則として失効となります</li>
-              <li>キャンセルされた場合の取扱いは、利用形態別の規定に従います（詳しくは<a href="#cancellation">04. キャンセル・スケジュール変更</a>をご覧ください）</li>
+              <li>キャンセルされた場合の取扱いは、利用形態別の規定に従います（詳しくは<a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>をご覧ください）</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               購入後のキャンセル・返金
             </h4>
             <p>
@@ -173,7 +170,7 @@ export default function PolicyPage() {
               初回のご利用に先立ち、担当となるスタッフがご自宅を訪問する事前面談です。ペットの性格、住環境、お世話の流れ、入退室の方法、緊急時の取り決めを、一つひとつていねいに確認させていただきます。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               所要時間と料金
             </h4>
             <ul>
@@ -182,14 +179,14 @@ export default function PolicyPage() {
               <li>原則として対面で実施しますが、ご事情がある場合はオンラインでの実施もご相談ください</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               お申し込みのタイミング
             </h4>
             <p>
               初回サービス日の2週間前までにお申し込みください。Meet &amp; Greet の完了および当社所定の確認を経て、本予約のご利用が可能となります。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               Meet &amp; Greet で確認させていただくこと
             </h4>
             <ul>
@@ -222,45 +219,45 @@ export default function PolicyPage() {
               cocoarucoのペットシッターサービスには、お世話の内容と時間に応じた4つの基本メニューがあります。下記は <strong>定期コース基準</strong> の料金です。
             </p>
 
-            <div className="my-6 overflow-x-auto">
-              <table className="w-full text-sm border border-sitter-main/15 rounded-2xl overflow-hidden">
-                <thead className="bg-linen">
+            <div className="my-5 overflow-x-auto -mx-4 px-4">
+              <table className="w-full text-sm border border-border-subtle rounded-lg overflow-hidden">
+                <thead className="bg-surface-sunken">
                   <tr>
-                    <th className="text-left px-4 py-3 font-bold text-brand-navy">メニュー</th>
-                    <th className="text-left px-4 py-3 font-bold text-brand-navy">時間</th>
-                    <th className="text-right px-4 py-3 font-bold text-brand-navy">料金（税込）</th>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">メニュー</th>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">時間</th>
+                    <th className="text-right px-3 py-2.5 font-medium text-text-primary text-xs">料金（税込）</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-sitter-main/10">
+                <tbody className="divide-y divide-border-subtle">
                   <tr>
-                    <td className="px-4 py-3">クイック・ビジット</td>
-                    <td className="px-4 py-3 text-text-primary/70">15分</td>
-                    <td className="px-4 py-3 text-right font-bold">3,300円</td>
+                    <td className="px-3 py-2.5 text-text-primary">クイック・ビジット</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">15分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">3,300円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">オリジナル・ケア 30分</td>
-                    <td className="px-4 py-3 text-text-primary/70">30分</td>
-                    <td className="px-4 py-3 text-right font-bold">3,300円</td>
+                    <td className="px-3 py-2.5 text-text-primary">オリジナル・ケア 30分</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">30分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">3,300円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">オリジナル・ケア 45分</td>
-                    <td className="px-4 py-3 text-text-primary/70">45分</td>
-                    <td className="px-4 py-3 text-right font-bold">4,400円</td>
+                    <td className="px-3 py-2.5 text-text-primary">オリジナル・ケア 45分</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">45分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">4,400円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">プレミアム・ケア</td>
-                    <td className="px-4 py-3 text-text-primary/70">60〜75分</td>
-                    <td className="px-4 py-3 text-right font-bold">5,500円</td>
+                    <td className="px-3 py-2.5 text-text-primary">プレミアム・ケア</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">60〜75分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">5,500円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">寝かしつけプラン</td>
-                    <td className="px-4 py-3 text-text-primary/70">60〜90分</td>
-                    <td className="px-4 py-3 text-right font-bold">7,700円</td>
+                    <td className="px-3 py-2.5 text-text-primary">寝かしつけプラン</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">60〜90分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">7,700円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">追加 15分</td>
-                    <td className="px-4 py-3 text-text-primary/70">+15分</td>
-                    <td className="px-4 py-3 text-right font-bold">1,100円</td>
+                    <td className="px-3 py-2.5 text-text-primary">追加 15分</td>
+                    <td className="px-3 py-2.5 text-text-secondary text-xs">+15分</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">1,100円</td>
                   </tr>
                 </tbody>
               </table>
@@ -276,12 +273,12 @@ export default function PolicyPage() {
               同じメニューでも、ご利用形態によって料金が異なります。継続的にご利用いただく方ほど、低い単価でご利用いただける設計です。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               定期コース（基準料金）
             </h4>
             <p>上記「基本メニューと料金」の料金そのものでご利用いただけます。</p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               パスポート（10回一括購入）
             </h4>
             <p>
@@ -293,7 +290,7 @@ export default function PolicyPage() {
               <li>シーズン パス（90日）：定期コース料金 + 約550円/回</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               スポット利用（単発）
             </h4>
             <p>
@@ -317,46 +314,46 @@ export default function PolicyPage() {
           <PolicySection id="pricing-keys" title="鍵に関わる費用">
             <p>
               ご自宅への入退室方法（スマートロック・キーボックス・合鍵）によって、加算される費用が異なります。詳しい運用は
-              <a href="#keys">06. 鍵のお預かりと入退室について</a>
+              <a href="#keys" className="text-primary underline underline-offset-2">06. 鍵のお預かりと入退室について</a>
               をご覧ください。
             </p>
 
-            <div className="my-6 overflow-x-auto">
-              <table className="w-full text-sm border border-sitter-main/15 rounded-2xl overflow-hidden">
-                <thead className="bg-linen">
+            <div className="my-5 overflow-x-auto -mx-4 px-4">
+              <table className="w-full text-sm border border-border-subtle rounded-lg overflow-hidden">
+                <thead className="bg-surface-sunken">
                   <tr>
-                    <th className="text-left px-4 py-3 font-bold text-brand-navy">項目</th>
-                    <th className="text-right px-4 py-3 font-bold text-brand-navy">料金（税込）</th>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">項目</th>
+                    <th className="text-right px-3 py-2.5 font-medium text-text-primary text-xs">料金（税込）</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-sitter-main/10">
+                <tbody className="divide-y divide-border-subtle">
                   <tr>
-                    <td className="px-4 py-3">スマートロック・指紋認証でのご入室</td>
-                    <td className="px-4 py-3 text-right">加算なし</td>
+                    <td className="px-3 py-2.5 text-text-primary">スマートロック・指紋認証でのご入室</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">加算なし</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">キーボックスのレンタル</td>
-                    <td className="px-4 py-3 text-right">無料（送料880円のみ）</td>
+                    <td className="px-3 py-2.5 text-text-primary">キーボックスのレンタル</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">無料（送料880円のみ）</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">合鍵を2本以上お預けの場合</td>
-                    <td className="px-4 py-3 text-right">加算なし</td>
+                    <td className="px-3 py-2.5 text-text-primary">合鍵を2本以上お預けの場合</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">加算なし</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">合鍵を1本のみお預けの場合</td>
-                    <td className="px-4 py-3 text-right font-bold">+440円/回</td>
+                    <td className="px-3 py-2.5 text-text-primary">合鍵を1本のみお預けの場合</td>
+                    <td className="px-3 py-2.5 text-right font-medium text-text-primary">+440円/回</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">長期保管サービス（年額）</td>
-                    <td className="px-4 py-3 text-right">2,200円</td>
+                    <td className="px-3 py-2.5 text-text-primary">長期保管サービス（年額）</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">2,200円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">合鍵の郵送返却（普通郵便/クリックポスト）</td>
-                    <td className="px-4 py-3 text-right">330円</td>
+                    <td className="px-3 py-2.5 text-text-primary">合鍵の郵送返却（普通郵便/クリックポスト）</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">330円</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3">合鍵の郵送返却（簡易書留/こねこ便）</td>
-                    <td className="px-4 py-3 text-right">660円</td>
+                    <td className="px-3 py-2.5 text-text-primary">合鍵の郵送返却（簡易書留/こねこ便）</td>
+                    <td className="px-3 py-2.5 text-right text-text-secondary">660円</td>
                   </tr>
                 </tbody>
               </table>
@@ -407,15 +404,15 @@ export default function PolicyPage() {
               クレジットカード・デビットカードによるオンライン自動決済のみをご用意しています。会員登録時にご登録いただいたカードで、サービスご利用時に自動で決済が行われます。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               ご利用いただけるカードブランド
             </h4>
             <p>
               以下7ブランドのカードをご利用いただけます。
             </p>
 
-            <div className="my-6 p-6 rounded-2xl bg-linen border border-sitter-main/15">
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 items-center">
+            <div className="my-5 p-4 rounded-lg bg-surface-sunken border border-border-subtle">
+              <div className="grid grid-cols-4 gap-2 items-center">
                 {[
                   { name: 'VISA', label: 'VISA' },
                   { name: 'Mastercard', label: 'Mastercard' },
@@ -427,13 +424,13 @@ export default function PolicyPage() {
                 ].map((brand) => (
                   <div
                     key={brand.name}
-                    className="aspect-[8/5] rounded-xl bg-white border border-sitter-main/10 flex items-center justify-center text-[10px] md:text-xs text-text-primary/70 text-center px-2 leading-tight font-bold"
+                    className="aspect-[8/5] rounded-md bg-surface border border-border-subtle flex items-center justify-center text-[9px] text-text-secondary text-center px-1.5 leading-tight font-medium"
                   >
                     {brand.label}
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-[11px] text-text-primary/50 leading-relaxed">
+              <p className="mt-3 text-[10px] text-text-muted leading-relaxed">
                 ※ 各カードブランドの公式ロゴ画像は、Square ガイドラインに従い後日差し替え予定。
               </p>
             </div>
@@ -448,7 +445,7 @@ export default function PolicyPage() {
               ご利用形態によって、決済が行われるタイミングが異なります。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               定期コース・スポット利用
             </h4>
             <p>
@@ -459,12 +456,12 @@ export default function PolicyPage() {
               <li>16日〜末日のご利用分 → 翌1日に自動決済</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               パスポート
             </h4>
             <p>ご購入時に即時決済いたします。</p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               Meet &amp; Greet
             </h4>
             <p>
@@ -516,49 +513,40 @@ export default function PolicyPage() {
 
             {/* 三段階タイムライン帯 */}
             <div className="my-8">
-              <div className="grid grid-cols-3 gap-2 mb-2">
-                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+              {/* ラベル行 */}
+              <div className="grid grid-cols-3 gap-1.5 mb-2">
+                <div className="text-center text-[10px] font-medium tracking-wide text-text-secondary leading-tight">
                   〜 2日前 18:00
                 </div>
-                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+                <div className="text-center text-[10px] font-medium tracking-wide text-text-secondary leading-tight">
                   〜 前日 18:00
                 </div>
-                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+                <div className="text-center text-[10px] font-medium tracking-wide text-text-secondary leading-tight">
                   前日 18:00 以降・当日
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-1 rounded-xl overflow-hidden border border-sitter-main/15">
-                <div className="bg-linen py-6 md:py-8 text-center">
-                  <p className="text-xs md:text-sm text-text-primary/70 mb-1">
-                    キャンセル料
-                  </p>
-                  <p className="text-base md:text-xl font-bold text-brand-navy">
-                    無料
-                  </p>
+              {/* 帯 */}
+              <div className="grid grid-cols-3 gap-1.5">
+                <div className="rounded-md bg-success-bg border border-success/30 py-5 text-center">
+                  <p className="text-[10px] text-text-secondary mb-1">キャンセル料</p>
+                  <p className="text-base font-medium text-success">無料</p>
                 </div>
-                <div className="bg-amber/25 py-6 md:py-8 text-center">
-                  <p className="text-xs md:text-sm text-text-primary/80 mb-1">
-                    サービス料金の
-                  </p>
-                  <p className="text-base md:text-xl font-bold text-brand-navy">
-                    50%
-                  </p>
+                <div className="rounded-md bg-warning-bg border border-warning/40 py-5 text-center">
+                  <p className="text-[10px] text-text-secondary mb-1">料金の</p>
+                  <p className="text-base font-medium text-warning">50%</p>
                 </div>
-                <div className="bg-brand-navy py-6 md:py-8 text-center">
-                  <p className="text-xs md:text-sm text-white/80 mb-1">
-                    サービス料金の
-                  </p>
-                  <p className="text-base md:text-xl font-bold text-white">
-                    100%
-                  </p>
+                <div className="rounded-md bg-primary border border-primary py-5 text-center">
+                  <p className="text-[10px] text-text-inverse/80 mb-1">料金の</p>
+                  <p className="text-base font-medium text-text-inverse">100%</p>
                 </div>
               </div>
 
-              <div className="flex items-center mt-3 px-2">
-                <div className="text-[10px] text-text-primary/50">早め</div>
-                <div className="flex-1 mx-3 h-px bg-gradient-to-r from-sitter-main/30 via-amber/50 to-brand-navy/50" />
-                <div className="text-[10px] text-text-primary/50">直前</div>
+              {/* 時間経過補助線 */}
+              <div className="flex items-center mt-3 px-1">
+                <span className="text-[10px] text-text-muted">早め</span>
+                <div className="flex-1 mx-2 h-px bg-border" />
+                <span className="text-[10px] text-text-muted">直前</span>
               </div>
             </div>
 
@@ -566,7 +554,7 @@ export default function PolicyPage() {
               ご予約の変更やキャンセルが必要になった場合は、なるべくお早めにご連絡をお願いいたします。
             </PolicyCallout>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               なぜ「2日前 18:00」を区切りにしているか
             </h4>
             <p>
@@ -582,7 +570,7 @@ export default function PolicyPage() {
               上記の基本に加えて、ご利用形態によって個別の取扱いがあります。
             </p>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               定期コース（週3回以上）
             </h4>
             <ul>
@@ -591,7 +579,7 @@ export default function PolicyPage() {
               <li>振替は何回でも可能（振替先は当月＋3ヶ月先まで）</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               定期コース（週2回）
             </h4>
             <ul>
@@ -599,7 +587,7 @@ export default function PolicyPage() {
               <li>振替は何回でも可能（振替先は当月＋3ヶ月先まで）</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               パスポート
             </h4>
             <ul>
@@ -608,7 +596,7 @@ export default function PolicyPage() {
               <li>有効期限を超過した未消化分は失効となります</li>
             </ul>
 
-            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
               スポット利用
             </h4>
             <p>上記「キャンセル料の基本」がそのまま適用されます。</p>
@@ -630,7 +618,7 @@ export default function PolicyPage() {
           <PolicySection id="cancel-rush-fee" title="当日・前日予約料金との関係">
             <p>
               前日 18:00 以降に新規ご予約をいただいた場合、特急手配のための当日・前日予約料金（+1,100円・税込）が加算されます。詳しくは
-              <a href="#pricing">02. 料金について</a>
+              <a href="#pricing" className="text-primary underline underline-offset-2">02. 料金について</a>
               の「当日・前日予約料金」をご覧ください。
             </p>
             <p>
@@ -659,30 +647,29 @@ export default function PolicyPage() {
 
       </article>
 
-      {/* ─────────────── 末尾の補足（linen 背景に静かに語りかける） ─────────────── */}
-      <section className="bg-linen py-20 md:py-28 border-t border-sitter-main/10">
-        <div className="max-w-2xl mx-auto px-5 md:px-8">
-          <p className="text-xs tracking-widest text-sitter-accent font-bold mb-5 uppercase">
+      {/* ─────────────── 末尾補足 ─────────────── */}
+      <section className="bg-surface py-12 border-t border-border-subtle">
+        <div className="max-w-[430px] mx-auto px-4">
+          <p className="text-xs font-medium text-text-secondary tracking-wider uppercase mb-4">
             規約について
           </p>
-          <p className="text-sm md:text-base text-text-primary leading-loose mb-4">
+          <p className="text-sm text-text-primary leading-relaxed mb-3">
             本ページは、cocoarucoペットシッターサービスをご利用いただく方に向けて、ご利用方法・料金・運用ルールなどを、わかりやすくまとめたものです。
           </p>
-          <p className="text-sm md:text-base text-text-primary leading-loose mb-4">
+          <p className="text-sm text-text-primary leading-relaxed mb-3">
             具体的な権利義務関係を定めた利用規約は、ご入会フローまたは Meet &amp; Greet の際にお渡しし、ご同意をいただいたうえでサービスを開始します。
           </p>
-          <p className="text-sm md:text-base text-text-primary leading-loose">
+          <p className="text-sm text-text-primary leading-relaxed">
             ご検討段階で内容を確認されたい場合は、
             <a
               href="/contact"
-              className="text-sitter-main underline underline-offset-2 hover:text-sitter-earth"
+              className="text-primary underline underline-offset-2 hover:text-primary-hover"
             >
               お問い合わせフォーム
             </a>
             からご連絡ください。担当よりお送りいたします。
           </p>
-
-          <p className="mt-12 text-xs text-text-primary/50 leading-loose">
+          <p className="mt-8 text-[10px] text-text-muted leading-relaxed">
             本ポリシーは、サービスの改定に伴い変更される場合があります。最新版はマイページおよび本サービスサイトをご確認ください。
           </p>
         </div>
