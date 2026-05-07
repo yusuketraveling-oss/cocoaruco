@@ -49,61 +49,110 @@ components/
 - app/petsitter/layout.tsx：ペットシッター専用ヘッダー・フッター
 - 各エリアLP：エリアLP専用ヘッダー・フッター
 
-## デザインコンセプト
-Desert Modern。ペットシッター・ペットタクシーを統合した1コンセプト。
-乾いた大地のAmberと清廉なLinenを組み合わせたオーガニックでモダンなデザイン。
+## デザインシステム — Desert Modern
 
-## カラーシステム
+cocoaruco のデザイン規範は、プロジェクトルート直下の `cocoaruco-design-system.md` を **正本** とします。実装にあたっては必ずこのファイルを参照してください。
 
-### Brand Core
-- linen:            #FDFCF8  ← ベース背景色
-- brand-navy:       #002E4E  ← 基調色
-- brand-navy-hover: #001f35  ← ホバー時
-- amber:            #DBB35B  ← セカンダリ1
-- sand:             #BFA575  ← セカンダリ2
-- text-primary:     #333333  ← 本文テキスト
-- text-white:       #FFFFFF  ← 白テキスト
+### コアコンセプト
 
-### Service Colors（統合Desert Modernパレット）
-- sitter-main:    #436573  ← Steel
-- sitter-sub:     #918C7E  ← Khaki
-- sitter-accent:  #A47864  ← Copper
-- sitter-earth:   #695650  ← Umber
-- taxi-base:      #59695F  ← Sage
-- taxi-sub:       #E8C7B6  ← Blush
-- cream:          #FBF3E6  ← Cream
-- taupe:          #9D8877  ← Taupe
+**Desert Modern — 都市の中の乾いた洗練**
 
-## シェイプシステム
-- radius-lg:  24px  → rounded-2xl
-- radius-xl:  40px  → rounded-[40px]
-- radius-2xl: 48px  → rounded-[48px]
-- ボタン・バッジ: rounded-full
+砂漠を眺める都市のロフト。フラットでクリーン、わずかにウォーム。
+ペットを預ける安心感を、湿った優しさではなく **整えられた静かな丁寧さ** で表現します。
 
-## タイポグラフィ
-- H1: font-black(W900) / 56px / line-height 1.1 / tracking 0.02em
-- H2: font-bold(W700) / 36px / line-height 1.3 / tracking 0.05em
-- H3: font-bold(W700) / 24px / line-height 1.4 / tracking 0.05em
-- Body: font-normal(W400) / 16px / line-height 1.8 / tracking 0.05em
-- font-feature-settings: "palt"
+### 設計原則
 
-## テクスチャ・エフェクト
-- GlassCard: bg-[#FDFCF8]/75 backdrop-blur-md border border-white/60
-  shadow-[0_12px_40px_-8px_rgba(0,46,78,0.08)] rounded-[40px]
-- texture-sand: SVGノイズテクスチャ、opacity 0.08、mix-blend-mode: multiply
-- desert-tint: radial-gradient amber、背景に薄く敷く
+1. **写真・動物が主役、UIは脇役**
+2. **彩度を抑える**（HSL 30〜45% 帯）
+3. **フラットを徹底**（グラデーション禁止、影は極めて控えめ）
+4. **タップターゲット最小 44×44px**
+5. **スマホ最優先**（コンテンツコンテナは max-width: 430px）
+6. **rounded-full は原則禁止**（アバター以外）
+7. **純白 #FFFFFF を背景に使わない**
 
-## レイアウトリズム
-- セクション間余白: py-24 または py-32
-- コンテナ最大幅: max-w-7xl mx-auto
-- モバイルpadding: px-4 / デスクトップ: px-8
+### カラートークン
 
-## ボタン
-- Primary: bg-brand-navy text-white hover:bg-brand-navy-hover
-  border-2 border-transparent hover:border-amber
-  hover:shadow-[0_8px_20px_rgba(219,179,91,0.3)]
-  transition-all rounded-full font-bold
-- Secondary: bg-sitter-main text-white hover:opacity-90 rounded-full font-bold
+トークンの定義は `app/globals.css` の `@theme inline` ブロックにすべて集約されています。Tailwind クラスとして以下のように使えます：
+
+- `bg-bg`, `bg-surface`, `bg-surface-alt`, `bg-surface-sunken`
+- `text-text-primary`, `text-text-secondary`, `text-text-muted`, `text-text-inverse`
+- `border-border`, `border-border-strong`, `border-border-subtle`
+- `bg-primary`, `bg-primary-subtle`, `text-primary`
+- `bg-success`, `bg-warning`, `bg-danger`, `bg-info`（および対応する -bg, text-）
+- `bg-cat-1` 〜 `bg-cat-10`（および対応する -bg）
+- `bg-corporate-navy`, `text-corporate-navy`（局所使用のみ）
+- `bg-accent-service`, `text-accent-service`（サービスサブテーマ）
+
+### タイポグラフィ
+
+- **フォント**：Noto Sans JP（英数字も同じフォントで統一）
+- **見出しのウェイト**：font-medium (500) を基本。bold は使わない。
+- **本文サイズ**：15px が基準
+- **使うサイズの種類は1画面で4種類以下**
+
+### スペーシング
+
+- 4px ベース（spacing-1〜spacing-20）
+- セクション間の余白は控えめに（過剰な py-24, py-32 は避ける）
+
+### 角丸
+
+- 最大 `rounded-xl`（8px）まで
+- カード・モーダル：`rounded-lg`（6px）
+- ボタン・入力欄：`rounded-md`（4px）
+- バッジ・チップ：`rounded-sm`（2px）
+- アバター画像のみ `rounded-full` 例外
+
+### 影
+
+- `shadow-sm`〜`shadow-lg` の範囲のみ
+- 強調はボーダーで行う（`border-strong` を使う）
+
+### サービスサブテーマ
+
+- ペットシッター：`<html data-service="petsitter">`（背景：ウォームサンド、アクセント：セージグリーン）
+- ペットタクシー：`<html data-service="pettaxi">`（背景：ニュートラル、アクセント：ダスティブルー）
+
+### コンテンツの横幅
+
+- **読みもの系**（ポリシー、採用、会社情報）：max-width: 430px（スマホ幅でセンタリング）
+- **予約・フォーム系**：max-width: 430px
+- **LP系**：max-width: 430px
+
+すべてのコンテンツが**スマホ幅でセンタリング**される設計です。PC 表示でも、コンテンツ自体はスマホ幅を維持します。
+
+### コーポレートカラー（ナビー #2C3856）の扱い
+
+ナビーは **コーポレート要素のみ局所使用** とします：
+
+- **使ってよい場所**：株式会社ココアルコのロゴ、フッター末尾の社名表示、法的表記
+- **使ってはいけない場所**：本文の見出し、CTA ボタン、リンク色、アクセント要素
+
+本文・見出し・CTA は新トークンの `primary`（クレイ）または `accent-service`（サービスごとのアクセント色）を使用します。
+
+### 旧トークンからの移行ルール
+
+旧コード内の以下のクラス名は、新トークンに置き換えてください：
+
+| 旧クラス | 新クラス |
+|---|---|
+| `bg-linen` | `bg-bg` |
+| `bg-white` | `bg-surface` |
+| `text-brand-navy` | `text-text-primary`（本文）または `text-corporate-navy`（コーポレート要素のみ） |
+| `bg-brand-navy` | `bg-primary`（CTA）または `bg-corporate-navy`（コーポレート要素のみ） |
+| `text-amber` | `text-warning` |
+| `bg-amber` | `bg-warning` |
+| `bg-amber/10`, `bg-amber/25` | `bg-warning-bg` |
+| `text-sand` | `text-text-secondary` |
+| `text-sitter-main` | `text-accent-service`（または `text-primary`） |
+| `bg-sitter-main` | `bg-accent-service`（または `bg-primary`） |
+| `bg-sitter-main/10` | `bg-primary-subtle`（または `bg-surface-alt`） |
+| `text-sitter-accent` | `text-warning`（または `text-text-secondary`） |
+| `text-sitter-earth` | `text-text-secondary` |
+| `bg-cream` | `bg-surface` |
+| `text-text-primary` | （変更なし、ただし `var(--color-text-primary)` を参照） |
+| `font-bold`（見出し） | `font-medium`（読みものページのヒーロー以外） |
+| `rounded-2xl`, `rounded-3xl`, `rounded-[40px]` | `rounded-lg`, `rounded-xl` |
 
 ## コーディングルール
 - shadcn/ui は使用しない
@@ -269,31 +318,6 @@ cocoaruco.jp/mypage/
 - 締め期間：1〜15日 / 16〜末日
 - 予約カードを締め期間内で集計
 - 締め日に自動決済（Square Card on File API）
-
-## フォント設計（3変数化）
-
-CSS変数で3つの役割に分けて管理しています。将来 Adobe Fonts などへの差し替えは `app/globals.css` の `:root` ブロック内の3変数の値を書き換えるだけで全ページに反映されます。
-
-- `--font-body-family`：本文（body, p, span など）→ 現状 Noto Sans JP
-- `--font-display-family`：見出し（h1/h2/h3）→ 現状 Noto Sans JP（将来 Adobe Fonts 和文ディスプレイ書体予定）
-- `--font-en-family`：英字ラベル（eyebrow, SINCE 2013 等）→ 現状 Noto Sans JP（将来 Adobe Fonts 欧文書体予定）
-
-`@theme inline` で Tailwind クラスに対応：
-- `font-sans`：本文（デフォルト、body に適用済み）
-- `font-display`：見出しを意図的にディスプレイ書体にしたい時
-- `font-en`：英字ラベル
-
-注意：Tailwind v4 では `tailwind.config.ts` でのテーマ定義は不可。全トークンは `app/globals.css` の `@theme inline` で一元管理。
-
-## カラートークン
-
-すべて `app/globals.css` の `@theme inline` で定義。Tailwind ユーティリティとして自動生成されます（例: `--color-linen` → `bg-linen`, `text-linen`, `border-linen`）。
-
-色の追加・変更は `globals.css` の1箇所で完結します。
-
-コンポーネント実装時の注意：
-- `brand-navy` と `navy` は同値（#002E4E）。既存コンポーネントは `navy` を使用
-- `text-primary` と `ink` は同値（#333333）。既存コンポーネントは `ink` を使用
 
 ## Git運用ルール
 

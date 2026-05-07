@@ -1,43 +1,182 @@
 @import "tailwindcss";
 
-/* Font swap points — Adobe Fonts 移行時はここの var() を書き換えるだけで全ページ反映 */
+/* ─────────────────────────────────────────
+   Font Family Tokens
+   将来 Adobe Fonts への差し替えはここの var() を書き換えるだけ
+   ───────────────────────────────────────── */
 :root {
   --font-body-family: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-display-family: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-en-family: var(--font-noto-sans-jp), -apple-system, 'Segoe UI', sans-serif;
 }
 
+/* ─────────────────────────────────────────
+   cocoaruco Design System Tokens (Desert Modern)
+   詳細は cocoaruco-design-system.md を参照
+   ───────────────────────────────────────── */
 @theme inline {
-  /* Fonts */
+  /* Font families */
   --font-sans: var(--font-body-family);
   --font-display: var(--font-display-family);
   --font-en: var(--font-en-family);
 
-  /* Brand Core */
-  --color-linen: #FDFCF8;
-  --color-navy: #002E4E;
-  --color-brand-navy: #002E4E;
-  --color-brand-navy-hover: #001f35;
-  --color-amber: #DBB35B;
-  --color-sand: #BFA575;
-  --color-text-primary: #333333;
-  --color-ink: #333333;
+  /* ─── Base Layer (画面の80%を占める色) ─── */
 
-  /* Service Colors (Desert Modern) */
-  --color-sitter-main: #436573;
-  --color-sitter-sub: #918C7E;
-  --color-sitter-accent: #A47864;
-  --color-sitter-earth: #695650;
-  --color-taxi-base: #59695F;
-  --color-taxi-sub: #E8C7B6;
-  --color-cream: #FBF3E6;
-  --color-taupe: #9D8877;
+  /* 背景・サーフェス */
+  --color-bg: #F4EEE2;             /* ウォームサンド・ページ背景 */
+  --color-surface: #FAF6EC;        /* カード・モーダル背景 */
+  --color-surface-alt: #EDE5D2;    /* selected状態・hover背景 */
+  --color-surface-sunken: #E8DFC9; /* 凹んだ印象のセクション背景 */
+
+  /* テキスト */
+  --color-text-primary: #3A3328;   /* 深い土色・本文 */
+  --color-text-secondary: #6B5F4D; /* セカンダリ・キャプション */
+  --color-text-muted: #9C907A;     /* ミュート・補足 */
+  --color-text-inverse: #FAF6EC;   /* 暗背景上のテキスト */
+
+  /* ボーダー */
+  --color-border: #DCD2B8;         /* 通常の区切り線 */
+  --color-border-strong: #BFB294;  /* 強調された区切り */
+  --color-border-subtle: #ECE4CC;  /* 極めて薄い区切り */
+
+  /* ─── Primary Layer (ブランドアクション色) ─── */
+
+  /* ウォームクレイ — メインアクション */
+  --color-primary: #B89878;
+  --color-primary-hover: #A48562;
+  --color-primary-active: #8E7350;
+  --color-primary-disabled: #D6C5AE;
+  --color-primary-subtle: #EFE3D2;
+
+  /* セカンダリ — アウトライン・補助 */
+  --color-secondary: #6B5F4D;
+  --color-secondary-hover: #524739;
+
+  /* ─── Semantic Layer (意味を伝える色) ─── */
+
+  --color-success: #7A8B5C;        /* くすんだセージグリーン */
+  --color-success-bg: #ECEFE0;
+  --color-warning: #C49A52;        /* くすんだマスタード */
+  --color-warning-bg: #F5ECD8;
+  --color-danger: #B5654A;         /* テラコッタレッド・低彩度 */
+  --color-danger-bg: #F0DDD3;
+  --color-info: #6B7E8A;           /* くすんだダスティブルー */
+  --color-info-bg: #DDE3E6;
+
+  /* ─── Service Sub-theme (petsitter デフォルト) ─── */
+
+  --color-accent-service: #8E9A6B; /* セージグリーン — petsitter のアクセント */
+
+  /* ─── Category Layer (ERP・コンテキスト切替用 / 10色) ─── */
+
+  /* 基調派生(6色) */
+  --color-cat-1: #B89878;          /* clay = primary */
+  --color-cat-2: #C8A062;          /* warm sand */
+  --color-cat-3: #8E9A6B;          /* sage */
+  --color-cat-4: #A8835E;          /* terracotta light */
+  --color-cat-5: #8B7A92;          /* dusty plum */
+  --color-cat-6: #7C8B8A;          /* desert stone */
+
+  /* 強調・視線誘導(4色) */
+  --color-cat-7: #B5654A;          /* deep terracotta */
+  --color-cat-8: #C49A52;          /* mustard */
+  --color-cat-9: #6B7E8A;          /* dusty blue */
+  --color-cat-10: #3F4A66;         /* ink navy(コーポレートNavy再解釈) */
+
+  /* 各カテゴリの薄塗り背景 */
+  --color-cat-1-bg: #EFE3D2;
+  --color-cat-2-bg: #F2E5C7;
+  --color-cat-3-bg: #E2E7D5;
+  --color-cat-4-bg: #ECDDCB;
+  --color-cat-5-bg: #E5DDE9;
+  --color-cat-6-bg: #DEE3E2;
+  --color-cat-7-bg: #F0DDD3;
+  --color-cat-8-bg: #F5ECD8;
+  --color-cat-9-bg: #DDE3E6;
+  --color-cat-10-bg: #D6DAE3;
+
+  /* ─── Corporate Reference Color (局所使用のみ) ─── */
+
+  --color-corporate-navy: #2C3856; /* 株式会社ココアルコのNavyロゴ */
+
+  /* ─── Spacing (4px base) ─── */
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+
+  /* ─── Border Radius ─── */
+
+  --radius-sm: 2px;                /* チップ・バッジ */
+  --radius-md: 4px;                /* ボタン・入力欄・カレンダーセル */
+  --radius-lg: 6px;                /* カード・モーダル */
+  --radius-xl: 8px;                /* 大きなコンテナ */
+  --radius-avatar: 50%;            /* アバター画像専用 */
+
+  /* ─── Border Width ─── */
+
+  --border-default: 1px;
+  --border-strong: 1.5px;
+
+  /* ─── Shadow (極めて控えめ・フラット重視) ─── */
+
+  --shadow-sm: 0 1px 2px rgba(58, 51, 40, 0.04);
+  --shadow-md: 0 2px 6px rgba(58, 51, 40, 0.06);
+  --shadow-lg: 0 4px 16px rgba(58, 51, 40, 0.08);
+
+  /* ─── Animation ─── */
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease-out;
+  --easing-soft: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ─────────────────────────────────────────
+   pettaxi サブテーマ（屋外・動・ニュートラル）
+   data-service="pettaxi" のページに自動適用
+   ───────────────────────────────────────── */
+[data-service="pettaxi"] {
+  --color-bg: #EFEAE0;
+  --color-surface: #F7F2E8;
+  --color-accent-service: #6B7E8A;
+}
+
+/* ─────────────────────────────────────────
+   Body Defaults
+   ───────────────────────────────────────── */
 body {
   font-family: var(--font-body-family);
-  font-feature-settings: "palt";
-  letter-spacing: 0.05em;
-  background-color: #FDFCF8;
-  color: #333333;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── 見出しのデフォルト (medium が基本) ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+/* ─── prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
