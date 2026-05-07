@@ -1511,7 +1511,182 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 13〜14 は順次追加されます ── */}
+        {/* ── 章 13：ご契約の解除 ── */}
+        <PolicyChapter
+          number="13"
+          id="termination"
+          title="ご契約の解除"
+          lead="長くお付き合いいただくサービスだからこそ、解除に関するルールも、誠実に明示しておきます。安心して始めていただき、必要なときには無理なく解除いただけるよう、設計しています。"
+          toc={[
+            { id: 'termination-by-customer', label: '飼い主さまからの解約・退会' },
+            { id: 'termination-by-us', label: '当社からのサービス継続お断り' },
+            { id: 'termination-refund', label: '解除時の返金の取扱い' },
+          ]}
+        >
+          <PolicySection id="termination-by-customer" title="飼い主さまからの解約・退会">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              退会について
+            </h4>
+            <p>
+              マイページから、いつでも退会のお手続きをしていただけます。退会の時点で振替済みかつ未消化のご予約は、原則として失効いたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              定期コースの解約について
+            </h4>
+            <p>
+              定期コースは、ご家族の暮らしのリズムに沿って継続的にお世話を行うという性質があります。安定したスタッフ配置と予約枠の確保のため、以下の解約ルールを設けています。
+            </p>
+            <ul>
+              <li>初回ご利用日が属する月および<strong>その翌月分のご利用料金</strong>は、解約のお申し出にかかわらず、請求が確定します。</li>
+              <li>解約は<strong>翌々月以降</strong>を解約日として、マイページからご自身でお手続きいただけます。</li>
+              <li>解約日として指定できるのは、<strong>お申し出日の1週間先以降</strong>の日付に限られます。</li>
+              <li>上記の2つの条件（翌々月以降であること／お申し出日の1週間先以降であること）の両方を満たす日付を、解約日としてご指定ください。</li>
+              <li>解約時点で振替済みかつ未消化となる予約日程は、原則として失効いたします。</li>
+            </ul>
+            <PolicyCallout variant="info" title="このルールについて">
+              初回利用日の当月および翌月分の請求が確定する取扱いは、ご利用頻度の高い飼い主さまの負担を一括前払いで増やしすぎないために、月ごとの分割請求としてお願いしているものです。何卒、ご理解いただけますと幸いです。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="termination-by-us" title="当社からのサービス継続お断り">
+            <p>
+              以下に該当する場合、サービスの継続をお断りすることがあります。これは、その子・スタッフ・ご家族のすべてが安心してサービスを続けるために必要な、最後の選択肢です。
+            </p>
+            <ul>
+              <li>その子の健康状態・咬傷歴等に重大な虚偽申告があった場合</li>
+              <li>咬傷等が繰り返され、安全なお世話が困難と判断される場合</li>
+              <li>住居環境の改善が見込まれない場合</li>
+              <li>スタッフのプライバシーを侵害する行為が確認された場合</li>
+              <li>スタッフへのハラスメント行為（暴言、長時間の拘束、不当な要求、性的不快感を与える言動、誹謗中傷等）が改善されない場合</li>
+              <li>その他、サービスの継続が困難と当社が合理的に判断した場合</li>
+            </ul>
+            <p>
+              こうした事態が発生する前に、私たちは必ず、ご家族と対話の機会を持ちます。サービス停止という結論は、対話を尽くしたうえで、それでも改善が見込まれない場合の最終的な判断です。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="termination-refund" title="解除時の返金の取扱い">
+            <p>
+              解除時の返金は、ご利用方法ごとの規定（定期コース・パスポート・スポット利用）に準じて対応いたします。詳しくは
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
+              をご覧ください。
+            </p>
+            <p>
+              当社の責に帰すべき事由によりサービスを中止する場合の取扱いは、
+              <a href="#compensation" className="text-primary underline underline-offset-2">11. 賠償の取扱い</a>
+              の「当社都合でサービス中止する場合」をご覧ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 14：個人情報とプライバシー ── */}
+        <PolicyChapter
+          number="14"
+          id="privacy"
+          title="個人情報とプライバシー"
+          lead="ペットシッターサービスでは、ご家族とその子の暮らしに深く関わる情報をお預かりします。お預かりする情報を、どのように扱い、守るかについての考え方をお伝えします。"
+          toc={[
+            { id: 'privacy-info', label: 'お預かりする情報' },
+            { id: 'privacy-purpose', label: '情報の利用目的' },
+            { id: 'privacy-share', label: 'スタッフ間での情報共有' },
+            { id: 'privacy-photo', label: '写真・動画の取扱い' },
+            { id: 'privacy-policy', label: 'プライバシーポリシーについて' },
+          ]}
+        >
+          <PolicySection id="privacy-info" title="お預かりする情報">
+            <p>
+              cocoarucoのペットシッターサービスでは、お世話を行うために、以下のような情報をお預かりします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              飼い主さまに関する情報
+            </h4>
+            <ul>
+              <li>お名前、ご住所、お電話番号、メールアドレス</li>
+              <li>緊急連絡先（ご家族や信頼できる方の連絡先）</li>
+              <li>ご請求・お支払い情報（カード情報は決済代行事業者が管理し、当社サーバーには保存しません）</li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              その子に関する情報
+            </h4>
+            <ul>
+              <li>お名前、種類、年齢、性別、性格、好みやリズム</li>
+              <li>健康状態、既往歴、服薬内容、ワクチン接種歴</li>
+              <li>かかりつけ動物病院の情報</li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              住居・入退室に関する情報
+            </h4>
+            <ul>
+              <li>入退室の方法（スマートロック、キーボックス、合鍵等）</li>
+              <li>防犯設備・警備契約の解除コード等</li>
+              <li>ご自宅内の動線、用品の保管場所</li>
+            </ul>
+          </PolicySection>
+
+          <PolicySection id="privacy-purpose" title="情報の利用目的">
+            <p>
+              お預かりした情報は、以下の目的のためにのみ利用いたします。
+            </p>
+            <ul>
+              <li>cocoarucoペットシッターサービスのご提供</li>
+              <li>担当スタッフ・チーム内での情報共有（次項に詳述）</li>
+              <li>緊急時のご連絡、医療機関との連携</li>
+              <li>ご請求・お支払いの処理</li>
+              <li>サービス改善のための統計的分析（個人を特定できない形に加工）</li>
+              <li>当社からの重要なお知らせ</li>
+            </ul>
+            <p>
+              上記以外の目的で情報を利用することはありません。第三者へ無断で情報を提供することもありません。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="privacy-share" title="スタッフ間での情報共有">
+            <p>
+              cocoarucoのペットシッターサービスは、担当チーム制で運営しております。Meet &amp; Greetを実施したスタッフだけでなく、同じセクションのスタッフが、その子のお世話に伺うことがあります。
+            </p>
+            <p>
+              その子のことを正しく理解し、お世話の質を保つため、お預かりした情報は<strong>担当チーム内で共有</strong>いたします。共有される情報は、お世話に必要な範囲に限定し、当社のシステム上で管理されます。
+            </p>
+            <p>
+              病欠や急なご依頼の場合は、エリアを横断した調整を行うこともあります。その際も、必要最小限の情報共有にとどめ、慎重に取り扱います。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="privacy-photo" title="写真・動画の取扱い">
+            <p>
+              シッティング中に撮影した写真・動画は、原則としてシッティングレポートでご家族にお届けする目的で撮影しております。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              SNS・販促物への利用について
+            </h4>
+            <p>
+              当社の公式SNSや販促物への利用をご希望される場合、または当社からご相談させていただく場合は、必ず事前にご家族の同意をいただきます。同意なく公開することはありません。
+            </p>
+            <p>
+              すでにご同意いただいた写真の利用を取りやめたい場合は、いつでも当社までお知らせください。可能な範囲で、速やかに対応いたします。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="privacy-policy" title="プライバシーポリシーについて">
+            <p>
+              本章は、ペットシッターサービスの中でお預かりする情報の取扱いについての考え方をまとめたものです。
+            </p>
+            <p>
+              cocoarucoサイト全体での情報の取扱いについては、別途
+              <a href="/policy/privacy" className="text-primary underline underline-offset-2 hover:text-primary-hover">
+                プライバシーポリシー
+              </a>
+              にて詳しくご案内しております。あわせてご覧ください。
+            </p>
+            <p>
+              情報の開示、訂正、削除等のご要望、その他のご質問については、
+              <a href="/contact" className="text-primary underline underline-offset-2 hover:text-primary-hover">
+                お問い合わせフォーム
+              </a>
+              からご連絡ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
 
       </article>
 
