@@ -643,7 +643,254 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 05〜14 は順次追加されます ── */}
+        {/* ── 章 05：ご予約について ── */}
+        <PolicyChapter
+          number="05"
+          id="reservation"
+          title="ご予約について"
+          lead="cocoarucoの予約システムは、ご家族の暮らしのリズムに合わせて、長く安定的にご利用いただけるよう設計されています。基本的なしくみと、ご利用にあたって知っておいていただきたいことをまとめています。"
+          toc={[
+            { id: 'reservation-system', label: '予約システムのしくみ' },
+            { id: 'reservation-regular-auto', label: '定期コースの自動予約' },
+            { id: 'reservation-changes', label: '日程の変更・振替' },
+            { id: 'reservation-rush', label: '当日・前日のご予約' },
+            { id: 'reservation-availability', label: 'ご予約状況の確認' },
+          ]}
+        >
+          <PolicySection id="reservation-system" title="予約システムのしくみ">
+            <p>
+              ご予約は、すべてマイページから行っていただきます。お電話やLINEでのご予約はお受けしておりません。
+            </p>
+            <p>
+              予約カレンダーは、毎月1日午前0時に翌月分が解放され、最大4ヶ月先までご予約いただけます。例えば3月15日時点では6月末までのご予約が可能で、4月1日に7月分が新たに解放されます。
+            </p>
+            <p>
+              各時間帯には予約枠の上限があり、満枠の場合はご予約いただけません。空き状況は、ご予約をされない場合でもカレンダーからご確認いただけますので、計画を立てる際の目安としてご活用ください。
+            </p>
+            <p>
+              なお、本サービスはペットの安全およびスタッフの安全を確保するため、当社が必要と認める場合にご予約をお受けできないことがあります。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="reservation-regular-auto" title="定期コースの自動予約">
+            <p>
+              定期コースをご利用の方は、所定のスケジュールに基づいて、当社が翌月分のご予約を自動で確保いたします。毎月1日に翌月分のカレンダーが解放されるタイミングに合わせて、最優先で予約枠を押さえる設計です。
+            </p>
+            <p>
+              曜日・時間枠の永続的な変更をご希望の場合は、変更希望日の <strong>1週間前まで</strong> にマイページからお申し出ください。早めにご連絡いただくことで、担当チームの調整がスムーズに進みます。
+            </p>
+            <PolicyCallout variant="info" title="サマータイム期間について">
+              6月21日〜9月20日のサマータイム期間中は、お散歩を含むサービスの時間枠が変動します。5月に7月以降の定期予約を入れる場合など、時間枠が変わる旨を予約画面でご案内いたします。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="reservation-changes" title="日程の変更・振替">
+            <p>
+              ご予約の追加・振替は、<strong>前日18時まで</strong> マイページから受け付けております。前日18時以降のキャンセル・振替の取扱いは
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
+              をご覧ください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              振替のしくみ
+            </h4>
+            <p>
+              振替は、振替手続き時点で開いている予約カレンダーの範囲内（当月＋3ヶ月先まで）からお選びいただけます。振替が完了すると、振替元の日程は空きとなります。
+            </p>
+            <p>
+              振替先が未来の日付にあたる場合でも、料金は <strong>振替元の日付が属する締め期間</strong> で決済されます。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              定期コースの振替について
+            </h4>
+            <p>
+              定期コースは、利用頻度に応じてキャンセル・振替の取扱いが異なります。
+            </p>
+            <ul>
+              <li><strong>週3回以上</strong>：2週間の締め期間内で2回までキャンセル可能。振替は何回でも可能です。</li>
+              <li><strong>週2回</strong>：キャンセルはお受けしておらず、振替でのご対応となります。振替は何回でも可能です。</li>
+            </ul>
+            <p>
+              詳しくは
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
+              の「ご利用形態別の細則」をご覧ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="reservation-rush" title="当日・前日のご予約">
+            <p>
+              前日18時以降の新規ご予約には、特急手配のための <strong>前日・当日予約料金（+1,100円・税込）</strong> が加算されます。
+            </p>
+            <p>
+              ご出張や体調不良など、やむを得ないご事情はもちろんございますが、できる限りお早めのご予約をおすすめしています。早めのご予約は、担当チームの準備時間に余裕を持たせるとともに、その子のお世話の質にもつながります。
+            </p>
+            <PolicyCallout variant="info">
+              既存のご予約の時間調整や担当者変更については、当日・前日予約料金は発生しません（キャンセル規定に従います）。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="reservation-availability" title="ご予約状況の確認">
+            <p>
+              マイページの予約カレンダーから、ご自身のご予約状況およびエリア・セクションごとの空き状況をご確認いただけます。
+            </p>
+            <p>
+              空きのなくなった予約枠は、原則としてご予約をお受けできません。どうしても対応が必要な場合は、当社の判断でセクション横断的な対応をご相談させていただくこともございます。
+            </p>
+            <p>
+              安定的にご利用いただくため、計画的なご予約をおすすめしております。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 06：鍵のお預かりと入退室について ── */}
+        <PolicyChapter
+          number="06"
+          id="keys"
+          title="鍵のお預かりと入退室について"
+          lead="ご自宅への入退室は、ペットシッターサービスの安全と利便性の根幹に関わる部分です。ご家族の暮らしに合わせて、安心していただける方法をご一緒に決めさせていただきます。"
+          toc={[
+            { id: 'keys-recommended', label: 'おすすめの入退室方法' },
+            { id: 'keys-keybox', label: 'キーボックスの無料レンタル' },
+            { id: 'keys-physical', label: '合鍵をお預けいただく場合' },
+            { id: 'keys-storage', label: '長期保管サービス' },
+            { id: 'keys-return', label: '合鍵の返却' },
+            { id: 'keys-loss', label: '紛失時の対応' },
+          ]}
+        >
+          <PolicySection id="keys-recommended" title="おすすめの入退室方法">
+            <p>
+              cocoarucoでは、合鍵を直接お預かりしない方法を、第一の選択肢としておすすめしています。スマートロック、暗証番号式キーボックス、指紋認証など、合鍵の物理的な受け渡しを伴わない方法であれば、ご家族のご予定変更や急なご依頼にも柔軟に対応できます。
+            </p>
+            <p>
+              また、もしものとき（鍵の紛失、誤操作によるオートロック等）にも、駆け付け対応がしやすくなります。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              主な入退室方法
+            </h4>
+            <ul>
+              <li><strong>スマートロック・指紋認証</strong>：加算なし</li>
+              <li><strong>キーボックス（当社レンタル）</strong>：無料貸出（送料880円のみ別途）</li>
+              <li><strong>合鍵をお預け（2本以上）</strong>：加算なし</li>
+              <li><strong>合鍵をお預け（1本のみ）</strong>：1回あたり +440円</li>
+            </ul>
+          </PolicySection>
+
+          <PolicySection id="keys-keybox" title="キーボックスの無料レンタル">
+            <p>
+              暗証番号式のキーボックスを、無料で貸し出しております。送料の880円のみご負担いただくかたちで、お申し込みは担当シッターまたはマイページからお気軽にどうぞ。
+            </p>
+            <p>
+              キーボックスは、玄関ドアのノブや配管などに取り付けていただきます。設置場所のご相談も承っております。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="keys-physical" title="合鍵をお預けいただく場合">
+            <p>
+              物理的な合鍵をお預けいただく場合は、以下の点をご確認ください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              2本以上のお預けを推奨
+            </h4>
+            <p>
+              マスターキーではない合鍵を、<strong>2本以上</strong> お預けいただくことを推奨しております。本店保管用と現場用に分けることで、急な担当変更や、もしもの場合にも柔軟に対応できるためです。
+            </p>
+            <p>
+              1本のみのお預けの場合は、本店⇔現場間の調整に手間が発生するため、<strong>1回あたり +440円</strong> の加算をお願いしております。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              その他の鍵について
+            </h4>
+            <p>
+              ゴミ収集室や郵便受けなど、入室後に施錠・解錠が必要な鍵については、原則としてご自宅内で保管をお願いしております（郵送はいたしません）。
+            </p>
+            <PolicyCallout variant="info">
+              合鍵のお預かり・お返しは、原則として対面で行います。スタッフ自宅での引き渡しは、防犯および担当スタッフの安全確保のため、お受けしておりません。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="keys-storage" title="長期保管サービス">
+            <p>
+              合鍵をお預けいただいているお客様で、直近のご予約が3ヶ月以上先まで入っていない場合に、長期保管サービスをご案内しております。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              サービスの概要
+            </h4>
+            <ul>
+              <li>料金：<strong>年額 2,200円（税込・自動更新）</strong></li>
+              <li>本店の鍵付き保管庫で、1本ずつ専用システムにて個別管理いたします</li>
+              <li>本店⇔スタッフ間の往復郵送料は料金に含まれます</li>
+              <li>お客様のご要請で、いつでも無料返送いたします（再開時に再度2,200円）</li>
+              <li>更新1ヶ月前に、メールおよびマイページでリマインダーをお送りします</li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              対象外のお客様
+            </h4>
+            <p>
+              定期コースを継続的にご利用中の方、シニア・通院中のその子の場合は、合鍵をご自宅で自己管理いただく方が望ましいため、長期保管サービスの対象外とさせていただいております。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="keys-return" title="合鍵の返却">
+            <p>
+              お預かりした合鍵は、ご解約時またはお客様のご要請に応じてお返しいたします。
+            </p>
+            <div className="my-6 overflow-x-auto -mx-4 px-4">
+              <table className="w-full text-sm border border-border-subtle rounded-lg overflow-hidden">
+                <thead className="bg-surface-sunken">
+                  <tr>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">
+                      返却方法
+                    </th>
+                    <th className="text-right px-3 py-2.5 font-medium text-text-primary text-xs">
+                      料金（税込）
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border-subtle">
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">
+                      現地返却（ドアポスト・郵便受け・キーボックス内・在宅家族等）
+                    </td>
+                    <td className="px-3 py-2.5 text-right">無料</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">
+                      郵送（普通郵便/クリックポスト）
+                    </td>
+                    <td className="px-3 py-2.5 text-right font-medium">330円</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">
+                      郵送（簡易書留/こねこ便）
+                    </td>
+                    <td className="px-3 py-2.5 text-right font-medium">660円</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              返却方法は、マイページからいつでも変更いただけます。
+            </p>
+            <PolicyCallout variant="info">
+              スタッフのご自宅での合鍵の引き渡し・お返しは、防犯および担当スタッフの安全確保のため、お受けしておりません。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="keys-loss" title="紛失時の対応">
+            <p>
+              お預かりした合鍵を当社の責任で紛失した場合、当社の費用負担にて、シリンダー交換、合鍵の新規作製、その他付随する対応を行います。
+            </p>
+            <p>
+              付随して発生した損害については、当社が加入する賠償責任保険の補償範囲内で対応いたします。詳しくは
+              <a href="#compensation" className="text-primary underline underline-offset-2">11. 賠償の取扱い</a>
+              をご覧ください。
+            </p>
+            <p>
+              なお、ご家族側の事情による合鍵の紛失（例：お預けいただく前の段階での紛失）については、本条の対象外となります。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 07〜14 は順次追加されます ── */}
 
       </article>
 
