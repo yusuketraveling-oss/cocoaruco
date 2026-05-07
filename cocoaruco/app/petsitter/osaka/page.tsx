@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { CTAButton } from '@/components/ui/CTAButton'
-import { GlassCard } from '@/components/ui/GlassCard'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { PolicyCallout } from '@/components/ui/PolicyCallout'
 import { SectionCalendar } from '@/components/area/SectionCalendar'
@@ -12,7 +11,7 @@ import { User } from '@phosphor-icons/react/dist/ssr'
 export const metadata: Metadata = {
   title: '大阪エリア | cocoaruco ペットシッター',
   description:
-    '大阪市内の北区・中之島、中央区、西区、天王寺区、福島区の各セクションで、地域に住むスタッフが担当チームを組んでいます。',
+    '大阪市内の5つのセクションで、地域に住むスタッフが担当チームを組んでいます。お仕事中の平日の日中、定期的にお邪魔して、その子の毎日に向き合う時間をそっと差し挟みます。',
 }
 
 const SECTIONS = [
@@ -61,13 +60,15 @@ export default function OsakaPage() {
             Osaka
           </p>
           <h1 className="text-2xl font-medium text-text-primary leading-tight tracking-tight">
-            大阪エリア
+            大阪市の5つのセクションで、
+            <br />
+            その子の毎日に。
           </h1>
           <p className="mt-5 text-sm text-text-primary leading-relaxed">
-            大阪市内の各セクションで、地域に住むスタッフが担当チームを組んでいます。
+            北区・中之島、中央区、西区、天王寺区、福島区——大阪市内の5つのセクションで、地域に住むスタッフが担当チームを組んでいます。
           </p>
           <p className="mt-3 text-sm text-text-primary leading-relaxed">
-            ご家族のいつもの暮らしのリズムを大切にしながら、その子と向き合う時間をていねいに重ねていきます。
+            お仕事中の平日の日中、定期的にお邪魔して、その子の毎日に「向き合う時間」をそっと差し挟みます。
           </p>
         </div>
       </section>
@@ -87,7 +88,7 @@ export default function OsakaPage() {
           <SectionHeader
             eyebrow="Sections"
             title="大阪市内の対応セクション"
-            lead="3〜5km圏内を担当チームが面で守る、cocoarucoのセクション制を採用しています。"
+            lead="3〜5km圏内を担当チームが面で守る、cocoarucoのセクション制を採用しています。地域に住むスタッフが、その地域の暮らしのリズムに馴染みながら、その子のお世話にお邪魔します。"
           />
           <div className="mt-8 space-y-3">
             {SECTIONS.map((section) => (
@@ -122,11 +123,14 @@ export default function OsakaPage() {
           <SectionHeader
             eyebrow="Pricing"
             title="料金について"
-            lead="ご家族の暮らしに合わせて、3つのご利用形態からお選びいただけます。"
+            lead="週の中心は定期コースのオリジナル・ケアで支え、特別な日にはプレミアム・ケアや寝かしつけプランを。スポット利用やパスポート（10回券）も、必要に応じてご利用いただけます。"
           />
           <div className="mt-6">
             <PricingTabs />
           </div>
+          <p className="mt-5 text-xs text-text-secondary leading-relaxed">
+            往復交通費は別立てではなく、料金に含まれています。お仕事中の平日の日中、定期的なご訪問にご満足いただける、月単位での暮らしのリズムを一緒に整えていく設計です。
+          </p>
         </div>
       </section>
 
@@ -162,8 +166,8 @@ export default function OsakaPage() {
         <div className="max-w-[430px] mx-auto px-4">
           <SectionHeader
             eyebrow="Our Team"
-            title="私たちのチーム"
-            lead="現在、大阪の各セクションで担当チームを編成中です。スタッフ紹介は順次公開してまいります。"
+            title="地域に住むスタッフが、お邪魔します。"
+            lead="現在、大阪市内の各セクションで、地域に住むスタッフのチームを編成中です。スタッフ紹介は、グランドオープンに向けて順次公開してまいります。"
           />
           <div className="mt-8 grid grid-cols-2 gap-3">
             {[1, 2, 3, 4].map((i) => (
@@ -189,7 +193,7 @@ export default function OsakaPage() {
           <SectionHeader
             eyebrow="First Step"
             title="ご利用までの、最初の一歩"
-            lead="cocoarucoのペットシッターは、Meet & Greet（事前面談）から始まります。担当となるスタッフがご自宅を訪問し、ペットの性格や住環境、お世話の流れを一つひとつ確認させていただきます。"
+            lead="cocoarucoのペットシッターは、Meet & Greet（事前面談）から始まります。担当となるスタッフがご自宅を訪問し、その子の性格、住環境、お世話の流れを、一つひとつご一緒に確認させていただきます。"
           />
           <div className="mt-8">
             <CTAButton href="/petsitter/osaka/mgr" variant="primary" size="block">
@@ -203,7 +207,7 @@ export default function OsakaPage() {
       <section className="bg-bg py-16">
         <div className="max-w-[430px] mx-auto px-4 text-center">
           <h2 className="text-xl font-medium text-text-primary leading-tight tracking-tight">
-            お気軽にお問い合わせください
+            お気軽に、お問い合わせください
           </h2>
           <p className="mt-4 text-sm text-text-primary leading-relaxed">
             プレオープン期間中も、ご相談・ご質問を随時お受けしております。
