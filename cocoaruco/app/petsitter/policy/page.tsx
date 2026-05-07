@@ -890,7 +890,224 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 07〜14 は順次追加されます ── */}
+        {/* ── 章 07：ペットの健康と安全 ── */}
+        <PolicyChapter
+          number="07"
+          id="health"
+          title="ペットの健康と安全"
+          lead="その子のお世話を安心してお引き受けするために、ご家族にご協力いただきたいことをまとめています。健康に関わる情報は、その子の暮らしを守るための大切な土台です。"
+          toc={[
+            { id: 'health-vaccine', label: 'ワクチン・予防接種' },
+            { id: 'health-parasite', label: 'ノミ・ダニの予防' },
+            { id: 'health-disclosure', label: '健康状態・既往歴のお知らせ' },
+            { id: 'health-special', label: 'シニア・子犬・術後の特別配慮' },
+            { id: 'health-walking-gear', label: 'リード・ハーネス・首輪の点検' },
+            { id: 'health-id', label: '迷子札・マイクロチップ' },
+            { id: 'health-insurance', label: 'ペット保険のご案内' },
+          ]}
+        >
+          <PolicySection id="health-vaccine" title="ワクチン・予防接種">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              狂犬病予防注射（犬の場合）
+            </h4>
+            <p>
+              狂犬病予防注射は、法令で定められた飼い主さまの義務です。一部の例外（獣医師の判断による接種猶予等）を除き、必ず接種証明書のご提出をお願いいたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              混合ワクチン
+            </h4>
+            <p>
+              犬・猫の混合ワクチンについても、その子の健康状態を正確に把握し、感染症のリスクを最小限に抑えるため、接種証明書のご提出にご協力ください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              ご提出方法
+            </h4>
+            <p>
+              初回はMeet &amp; Greetの際にご提示ください。次年度以降の更新分は、マイページへのアップロード、またはLINEで担当シッターまでお気軽にお送りください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="health-parasite" title="ノミ・ダニの予防">
+            <p>
+              特にお散歩や屋外での活動を含むサービスをご利用の場合、ノミ・ダニの予防処置を継続的に行っていただくようお願いしております。
+            </p>
+            <p>
+              ご家族にとっても、その子にとっても、屋外から持ち帰る寄生虫は思わぬ健康被害につながることがあります。動物病院で処方される予防薬の定期投与など、かかりつけ獣医師とご相談のうえ、ご対応いただけますと幸いです。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="health-disclosure" title="健康状態・既往歴のお知らせ">
+            <p>
+              Meet &amp; Greetの際に、以下の内容を必ずお聞かせください。その子のことを正しく理解させていただくために、また、お世話の中で何かいつもと違う様子があったときに、適切に判断するために、欠かせない情報です。
+            </p>
+            <ul>
+              <li>過去に人または動物を咬んだ経験、威嚇行動の有無</li>
+              <li>アレルギー、既往歴、現在の服薬内容</li>
+              <li>皮膚疾患、寄生虫感染、感染症の既往または現在の状態</li>
+              <li>獣医師から行動制限・食事制限・安静の指示を受けている場合は、その内容</li>
+            </ul>
+            <PolicyCallout variant="warning" title="申告内容について">
+              申告内容に重大な漏れや虚偽があり、それによってスタッフに被害が生じた場合、当社は責任を負いかねます。咬傷事案などについては、サービスの継続をお断りする場合がありますので、何卒、正直にお聞かせいただけますと幸いです。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="health-special" title="シニア・子犬・術後の特別配慮">
+            <p>
+              シニア期のその子、子犬・子猫、術後・闘病中のその子など、特別な配慮が必要な場合は、ケアの方法・頻度・避けるべき行動・服薬スケジュール等を詳しくお聞かせください。
+            </p>
+            <p>
+              獣医師からの指示書がある場合は、Meet &amp; Greetの際にあわせてご共有ください。私たちは、その指示を基本としながら、その日のその子の様子に合わせた、無理のないお世話を心がけます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="health-walking-gear" title="リード・ハーネス・首輪の点検">
+            <p>
+              お散歩を含むサービスをご利用の前に、リード・ハーネス・首輪の破損や緩みがないか、ご確認をお願いいたします。
+            </p>
+            <p>
+              サービス開始時に担当シッターも装着状態を確認しますが、消耗による不具合は、事前にお取り替えいただけますと安心です。脱走の予防は、その子の命を守る第一歩です。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="health-id" title="迷子札・マイクロチップ">
+            <p>
+              万が一の脱走時の安全確保のため、迷子札の装着とマイクロチップの登録を、強くおすすめしております。
+            </p>
+            <p>
+              マイクロチップは2022年以降、ペットショップやブリーダーから迎え入れた犬・猫には装着が義務付けられていますが、それ以前から暮らしているその子にも、後から装着が可能です。かかりつけ動物病院でご相談いただけます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="health-insurance" title="ペット保険のご案内">
+            <p>
+              緊急時の医療費は、原則として飼い主さまのご負担となります。ご家計の備えとして、ペット保険へのご加入をご検討いただくことをおすすめしております。
+            </p>
+            <p>
+              緊急時の対応の詳細については、
+              <a href="#emergency" className="text-primary underline underline-offset-2">10. 緊急時・もしもの時</a>
+              をご覧ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 08：お散歩について ── */}
+        <PolicyChapter
+          number="08"
+          id="walking"
+          title="お散歩について"
+          lead="お散歩は、その子の心と体を整える、大切な時間です。安全とその子の体調を最優先にしながら、その日のリズムに合わせたお散歩をお届けしています。"
+          toc={[
+            { id: 'walking-no-offlead', label: 'オフリードでのお散歩について' },
+            { id: 'walking-weather', label: '暑熱・寒冷気象時の運用' },
+            { id: 'walking-summertime', label: 'サマータイムの運用' },
+            { id: 'walking-risk', label: 'お散歩中のリスク管理' },
+          ]}
+        >
+          <PolicySection id="walking-no-offlead" title="オフリードでのお散歩について">
+            <p>
+              法令およびその子の安全確保の観点から、cocoarucoのお散歩では、<strong>オフリードでのお散歩は行いません</strong>。たとえご家族からのご希望があっても、当社のシッティング中にリードを離すことはございません。
+            </p>
+            <p>
+              お散歩中は、リードの長さ、テンション、犬具の状態を常に確認し、安全な距離と動線でお散歩を進めます。これは、その子の命を守るための、私たちの揺るがない方針です。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="walking-weather" title="暑熱・寒冷気象時の運用">
+            <p>
+              気温・湿度・天候に応じて、お散歩の時間帯、コース、所要時間を調整いたします。肉球の保護、水分補給、休憩のタイミングなど、その子の体調を最優先とした判断をいたします。
+            </p>
+            <p>
+              雨の日、雪の日、強風の日、極端に寒い日など、その日その日の状況に合わせて、無理のない範囲でお散歩をご一緒します。お散歩が難しいと判断した場合は、室内での運動・コミュニケーションに切り替えるなど、訪問時間の中で別の楽しみをお届けします。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="walking-summertime" title="サマータイムの運用">
+            <p>
+              夏場の高温期は、その子の体調と安全への配慮から、サービス提供時間帯およびお散歩の運用を調整させていただきます。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              サマータイム期間
+            </h4>
+            <p>
+              <strong>6月21日〜9月20日</strong>
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              時間枠の変更
+            </h4>
+            <div className="my-5 overflow-x-auto -mx-4 px-4">
+              <table className="w-full text-sm border border-border-subtle rounded-lg overflow-hidden">
+                <thead className="bg-surface-sunken">
+                  <tr>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">
+                      ブロック
+                    </th>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">
+                      通常期
+                    </th>
+                    <th className="text-left px-3 py-2.5 font-medium text-text-primary text-xs">
+                      サマータイム
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border-subtle">
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">A（早番）</td>
+                    <td className="px-3 py-2.5 text-text-secondary">7:00〜10:00</td>
+                    <td className="px-3 py-2.5 text-text-secondary">6:00〜9:00</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">B（早番）</td>
+                    <td className="px-3 py-2.5 text-text-secondary">10:00〜13:00</td>
+                    <td className="px-3 py-2.5 text-text-secondary">9:00〜12:00</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">C（遅番）</td>
+                    <td className="px-3 py-2.5 text-text-secondary">13:00〜16:00</td>
+                    <td className="px-3 py-2.5 text-text-secondary">15:00〜18:00</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2.5 text-text-primary">D（遅番）</td>
+                    <td className="px-3 py-2.5 text-text-secondary">16:00〜19:00</td>
+                    <td className="px-3 py-2.5 text-text-secondary">18:00〜21:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              猛暑日・路面温度の運用
+            </h4>
+            <ul>
+              <li>
+                <strong>猛暑日（気象庁の定義：最高気温35℃以上）</strong>の場合、お散歩は早朝（6:00〜9:00）と夕方以降（18:00〜21:00）の時間帯のみとさせていただきます。曇天や雨天で気温が安定している場合は、その他の時間帯でも対応することがあります。
+              </li>
+              <li>
+                <strong>アスファルト路面温度50℃以上</strong>の場合、お散歩を中止し、室内での運動・コミュニケーションに切り替えます。
+              </li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              その他の暑さ対策
+            </h4>
+            <p>
+              お散歩中も、状況に応じて、時間の短縮、日差しを避けるルートの選択、水分補給の頻度を増やす、公園までペットカート・ペットワゴンで移動するなど、その子の負担を最小限に抑える工夫を行います。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="walking-risk" title="お散歩中のリスク管理">
+            <p>
+              お散歩中は、他のその子や通行人だけでなく、車や自転車、路上のガラス片や穴などの危険、拾い食いの可能性など、起こりうるさまざまなリスクに目を配りながらお世話をいたします。
+            </p>
+            <p>
+              ルートの選定、リードコントロール、安全な距離の確保、周囲の状況の観察を通して、その子の安全を守ります。
+            </p>
+            <p>
+              万が一、お散歩中に予期せぬ事態が発生した場合の対応については、
+              <a href="#emergency" className="text-primary underline underline-offset-2">10. 緊急時・もしもの時</a>
+              をご覧ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 09〜14 は順次追加されます ── */}
 
       </article>
 
