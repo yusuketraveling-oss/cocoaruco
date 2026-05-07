@@ -75,7 +75,7 @@ export default function OsakaPage() {
       {/* プレオープンお知らせ */}
       <section className="bg-surface pb-8 border-y border-border-subtle">
         <div className="max-w-[430px] mx-auto px-4 pt-8">
-          <PolicyCallout variant="info" title="プレオープン期間中">
+          <PolicyCallout variant="service" title="プレオープン期間中">
             グランドオープンに向けて、各セクションで担当チームを整えています。お申し込みのご相談は随時お受けしておりますので、お気軽にお問い合わせください。
           </PolicyCallout>
         </div>

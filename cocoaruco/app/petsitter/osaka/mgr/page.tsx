@@ -140,7 +140,7 @@ export default function MeetAndGreetPage() {
       {/* プレオープン期間のお知らせ */}
       <section className="bg-surface py-8 border-y border-border-subtle">
         <div className="max-w-[430px] mx-auto px-4">
-          <PolicyCallout variant="info" title="プレオープン期間中">
+          <PolicyCallout variant="service" title="プレオープン期間中">
             現在、各セクションで担当チームを編成中です。お申し込みは随時お受けしており、サービス開始準備が整い次第、Meet
             &amp; Greet の日程について担当よりご連絡いたします。
           </PolicyCallout>

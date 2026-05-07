@@ -22,7 +22,7 @@ const STATUS_STYLES: Record<SectionStatus, { bg: string; label: string }> = {
     label: '満枠（順番待ち）',
   },
   preparing: {
-    bg: 'bg-info-bg text-info border-info/30',
+    bg: 'bg-accent-service/10 text-accent-service border-accent-service/30',
     label: '準備中',
   },
 }
