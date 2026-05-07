@@ -2,17 +2,11 @@ import Link from 'next/link'
 
 const FOOTER_LINKS = {
   service: {
-    title: 'サービス情報',
+    title: 'サービス',
     links: [
-      { label: 'ペットシッターについて', href: '/petsitter' },
-      { label: 'ご利用案内', href: '/petsitter/guide' },
-      { label: 'よくあるご質問', href: '/petsitter/faq' },
-      { label: '対応エリア', href: '/petsitter/area' },
+      { label: 'ペットシッター', href: '/petsitter' },
+      // 将来追加：{ label: 'ペットタクシー', href: '/pettaxi' },
     ],
-  },
-  policy: {
-    title: 'サービスポリシー',
-    links: [{ label: 'サービスポリシー', href: '/petsitter/policy' }],
   },
   company: {
     title: '会社情報',
@@ -32,7 +26,7 @@ const FOOTER_LINKS = {
   },
 }
 
-export function SitterFooter() {
+export function BrandFooter() {
   return (
     <footer className="bg-surface-sunken border-t border-border-subtle mt-16">
       <div className="max-w-[430px] mx-auto px-4 py-12">
