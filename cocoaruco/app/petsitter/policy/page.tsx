@@ -1107,7 +1107,191 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 09〜14 は順次追加されます ── */}
+        {/* ── 章 09：訪問時の住居環境について ── */}
+        <PolicyChapter
+          number="09"
+          id="home-environment"
+          title="訪問時の住居環境について"
+          lead="ご自宅にお邪魔してお世話をするからこそ、その子と担当スタッフが安心して過ごせる環境を、ご家族とご一緒に整えさせてください。"
+          toc={[
+            { id: 'home-supplies', label: '用品のご準備' },
+            { id: 'home-flow', label: '安全な動線の確保' },
+            { id: 'home-third-party', label: '第三者の在室について' },
+            { id: 'home-hygiene', label: '衛生状態について' },
+            { id: 'home-security', label: '防犯設備・警備契約のご共有' },
+          ]}
+        >
+          <PolicySection id="home-supplies" title="用品のご準備">
+            <p>
+              その子のお世話に必要な用品（フード・トイレ用品・投薬器具など）は、ご利用日数分をあらかじめご用意ください。
+            </p>
+            <p>
+              万が一、不足していた場合の対応方法については、Meet &amp; Greetの際にあらかじめご相談させていただきます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="home-flow" title="安全な動線の確保">
+            <p>
+              スタッフが安全にお世話できる動線をご確保ください。その子の行動範囲内に、スタッフまたはその子自身に危害を及ぼす可能性のある物品が置かれていないか、ご確認をお願いいたします。
+            </p>
+            <p>
+              例えば、誤飲しやすい小物、高いところからの落下リスクのある物、毒性のある観葉植物、人間の食品（チョコレート・玉ねぎ・ぶどう等）など、ご家族にとっては当たり前の景色でも、その子にとっては危険となるものがあります。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="home-third-party" title="第三者の在室について">
+            <p>
+              サービス時間中に、ご家族以外の方（同居人、訪問業者、ハウスキーパー、家事代行スタッフなど）が在室される予定がある場合は、必ず事前にお知らせください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              事前のご連絡なく第三者が在室されていた場合
+            </h4>
+            <p>
+              安全確保のため、一旦退室し、飼い主さまにご確認をとったうえでお世話を再開いたします。確認に要した時間分は、その子へのケアを最優先するため、お世話の時間を延長して対応します（延長分は追加料金扱いとなります）。
+            </p>
+            <p>
+              その回のお世話が実施できなかった場合も、キャンセルポリシーに準じた料金が発生いたしますので、あらかじめご了承ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="home-hygiene" title="衛生状態について">
+            <p>
+              その子の健康またはスタッフの安全を著しく損なうと判断される衛生状態の場合、当該回のお世話を最低限の範囲に留め、環境改善のご相談をさせていただくことがあります。
+            </p>
+            <p>
+              お引越し直後やご家族のご体調不良時など、一時的な状況であれば柔軟に対応させていただきますので、Meet &amp; Greetまたはご予約時にお気軽にご相談ください。改善の見込みがない場合は、サービスの継続をお断りする場合があります。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="home-security" title="防犯設備・警備契約のご共有">
+            <p>
+              防犯カメラ、センサー、警備会社との契約などがご自宅にある場合は、Meet &amp; Greetの際にお知らせください。解除コードや操作手順についても、サービス提供に必要な範囲で事前にご共有をお願いいたします。
+            </p>
+            <p>
+              なお、ペットカメラの取扱いについては、
+              <a href="#mutual-comfort" className="text-primary underline underline-offset-2">12. ご家族・スタッフ双方の安心</a>
+              に詳しくまとめています。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 10：緊急時・もしもの時 ── */}
+        <PolicyChapter
+          number="10"
+          id="emergency"
+          title="緊急時・もしもの時"
+          lead="その子の体調が突然変化したとき、脱走が起きたとき、災害が発生したとき——「もしものとき」に、私たちがどう動くかを、あらかじめお伝えしておきます。慌てず、誠実に対応するための準備を、Meet & Greetからずっと続けています。"
+          toc={[
+            { id: 'emergency-flow', label: '体調急変時の対応フロー' },
+            { id: 'emergency-medical', label: '治療費等のご負担' },
+            { id: 'emergency-contacts', label: '緊急連絡先のご登録' },
+            { id: 'emergency-escape', label: '脱走・逃走時の対応' },
+            { id: 'emergency-disaster', label: '災害時の対応' },
+            { id: 'emergency-other-clients', label: '他のご家族のご予約がある場合' },
+          ]}
+        >
+          <PolicySection id="emergency-flow" title="体調急変時の対応フロー">
+            <p>
+              お世話中にその子の体調が急変した場合、以下のフローで対応いたします。
+            </p>
+            <ol>
+              <li>
+                <strong>状態の確認と応急処置</strong>：呼吸、意識、出血、誤飲、外傷など、状態を確認のうえ、必要な応急処置を行います。
+              </li>
+              <li>
+                <strong>飼い主さまへのご連絡</strong>：電話 → LINE → 緊急連絡先の順でご連絡いたします。Meet &amp; Greetの際にあらかじめ取り決めた方針に基づき、連絡が取れない場合は次のステップに進みます。
+              </li>
+              <li>
+                <strong>かかりつけ動物病院への連絡・搬送</strong>：ご登録のかかりつけ病院に連絡し、必要に応じて担当シッターが搬送いたします。
+              </li>
+              <li>
+                <strong>連絡が取れない場合</strong>：現場の獣医師の判断に委ね、その子の生命・健康を最優先とした医療対応を進めます。
+              </li>
+              <li>
+                <strong>事後のご報告</strong>：状況が落ち着き次第、電話またはLINEで詳細をご報告いたします。
+              </li>
+            </ol>
+            <PolicyCallout variant="info" title="スタッフの応急処置研修について">
+              cocoarucoのスタッフは、応急処置の基礎研修を受けています。慌てずに最初の数分を整えられるよう、日々の研鑽を続けています。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="emergency-medical" title="治療費等のご負担">
+            <p>
+              緊急時に発生した治療費、搬送費、延長対応費等の実費は、原則として飼い主さまのご負担となります。
+            </p>
+            <p>
+              当社の過失に基づくと認められる場合は、
+              <a href="#compensation" className="text-primary underline underline-offset-2">11. 賠償の取扱い</a>
+              の規定に従って対応いたします。
+            </p>
+            <p>
+              ペット保険のご加入は、こうした緊急時の備えとしてもご検討いただけますと安心です。詳しくは
+              <a href="#health" className="text-primary underline underline-offset-2">07. ペットの健康と安全</a>
+              の「ペット保険のご案内」をご覧ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="emergency-contacts" title="緊急連絡先のご登録">
+            <p>
+              ご家族や信頼できるご友人など、なるべく <strong>複数のご連絡先</strong> のご登録をお願いしております。マイページからいつでも更新いただけます。
+            </p>
+            <p>
+              ご旅行やご出張など、飼い主さまご自身がすぐにご連絡を受けられない状況になりうる場合は、特にこの備えが重要です。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="emergency-escape" title="脱走・逃走時の対応">
+            <p>
+              サービス提供中の脱走、または訪問時にすでに脱走されているケースについては、飼い主さまと連絡を取り合いながら、責任を持って捜索および可能な対応を行います。状況に応じて、警察および動物愛護管理センターへの連絡もあわせて行います。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              未然防止のための取り組み
+            </h4>
+            <p>
+              扉や窓の開閉手順の確認、住環境のリスクの事前確認、お世話中の動線管理など、Meet &amp; Greetの段階から、最大限の配慮と工夫を徹底しています。
+            </p>
+            <p>
+              迷子札・マイクロチップの装着については、
+              <a href="#health" className="text-primary underline underline-offset-2">07. ペットの健康と安全</a>
+              でも触れていますが、万が一の脱走時の安全確保のために、ぜひご準備をお願いしております。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="emergency-disaster" title="災害時の対応">
+            <p>
+              地震、台風、大雪、火災等の災害発生時は、スタッフの安全確保を最優先としつつ、可能な範囲でその子の対応を行います。状況に応じて、サービス提供を中止する場合があります。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              サービス中止時の取扱い
+            </h4>
+            <p>
+              災害等の不可抗力によりサービスを中止する場合、キャンセル料は発生せず、無償振替または料金返還にて対応いたします。詳しくは
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
+              の例外規定をご覧ください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              緊急避難について
+            </h4>
+            <p>
+              火災・地震等が発生した場合、担当スタッフは自身の安全を最優先としつつ、可能な範囲でその子も連れ出します。状況によっては連れ出せない場合があり、そのような状況での結果について当社は責任を負いかねます。あらかじめご了承ください。
+            </p>
+            <p>
+              緊急避難に備えて、避難用キャリーの所在、避難先として想定される場所、災害時の連絡先等を、Meet &amp; Greetの際にご共有ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="emergency-other-clients" title="他のご家族のご予約がある場合">
+            <p>
+              その子の容態が落ち着くまで、担当シッターはできる限り現場に残ります。
+            </p>
+            <p>
+              ただし、他のご家族のお世話があり、お待ちのその子たちがいる場合は、別のスタッフと交代して対応を引き継ぐことがあります。私たちは、すべてのその子に等しく真剣に向き合うために、こうしたチーム体制を取っております。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 11〜14 は順次追加されます ── */}
 
       </article>
 
