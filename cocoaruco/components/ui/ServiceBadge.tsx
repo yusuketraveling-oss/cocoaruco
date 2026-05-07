@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type Service = 'petsitter' | 'pettaxi' | 'wedding' | 'cathotel'
+type Service = 'petsitter' | 'pettaxi'
 
 type ServiceBadgeProps = {
   service: Service
@@ -10,8 +10,6 @@ type ServiceBadgeProps = {
 const SERVICE_STYLES: Record<Service, string> = {
   petsitter: 'bg-cat-3-bg text-cat-3',
   pettaxi: 'bg-cat-9-bg text-cat-9',
-  wedding: 'bg-cat-5-bg text-cat-5',
-  cathotel: 'bg-cat-6-bg text-cat-6',
 }
 
 export function ServiceBadge({ service, children }: ServiceBadgeProps) {

@@ -342,3 +342,12 @@ cocoaruco.jp/mypage/
 git add .
 git commit -m "feat: add Header and Footer components"
 git push origin develop
+
+## Windows環境での日本語ファイル編集時の注意
+
+PowerShell は UTF-8 ファイルの編集時に文字化けを起こすことがあります。日本語を含むファイルを編集する際は、以下を遵守してください。
+
+1. **ファイル全文書き換えは Bash 経由で行う**（PowerShell の `>` リダイレクトは使わない）
+2. **コミット前に必ず `git diff` で文字化けがないか確認する**
+3. **怪しい場合は `git diff | head -100` で日本語部分を目視チェック**
+4. 万が一文字化けが発覚した場合は、即座に `git checkout` で復元する
