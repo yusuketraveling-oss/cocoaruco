@@ -389,7 +389,273 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 03〜14 は順次追加されます ── */}
+        {/* ── 章 03：お支払い方法について ── */}
+        <PolicyChapter
+          number="03"
+          id="payment"
+          title="お支払い方法について"
+          lead="cocoarucoのペットシッターサービスのお支払いは、クレジットカード・デビットカードによるオンライン自動決済を採用しています。安全で、お手間のかからないご利用を目指しています。"
+          toc={[
+            { id: 'payment-method', label: 'ご利用いただける決済方法' },
+            { id: 'payment-timing', label: '決済のタイミング' },
+            { id: 'payment-card-info', label: 'カード情報の管理' },
+            { id: 'payment-failure', label: '決済が失敗した場合の取扱い' },
+          ]}
+        >
+          <PolicySection id="payment-method" title="ご利用いただける決済方法">
+            <p>
+              クレジットカード・デビットカードによるオンライン自動決済のみをご用意しています。会員登録時にご登録いただいたカードで、サービスご利用時に自動で決済が行われます。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              ご利用いただけるカードブランド
+            </h4>
+            <p>
+              以下7ブランドのカードをご利用いただけます。
+            </p>
+
+            <div className="my-6 p-6 rounded-2xl bg-linen border border-sitter-main/15">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 items-center">
+                {[
+                  { name: 'VISA', label: 'VISA' },
+                  { name: 'Mastercard', label: 'Mastercard' },
+                  { name: 'JCB', label: 'JCB' },
+                  { name: 'AMEX', label: 'American Express' },
+                  { name: 'Diners', label: 'Diners Club' },
+                  { name: 'Discover', label: 'Discover' },
+                  { name: 'UnionPay', label: '銀聯' },
+                ].map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="aspect-[8/5] rounded-xl bg-white border border-sitter-main/10 flex items-center justify-center text-[10px] md:text-xs text-text-primary/70 text-center px-2 leading-tight font-bold"
+                  >
+                    {brand.label}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-[11px] text-text-primary/50 leading-relaxed">
+                ※ 各カードブランドの公式ロゴ画像は、Square ガイドラインに従い後日差し替え予定。
+              </p>
+            </div>
+
+            <PolicyCallout variant="info">
+              銀聯（UnionPay）カードもご利用いただけます。在住の中国系のお客様にもご安心してご利用いただけます。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="payment-timing" title="決済のタイミング">
+            <p>
+              ご利用形態によって、決済が行われるタイミングが異なります。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              定期コース・スポット利用
+            </h4>
+            <p>
+              2週間ごとの締め日に、ご利用済み分を一括して自動決済いたします。
+            </p>
+            <ul>
+              <li>1日〜15日のご利用分 → 16日に自動決済</li>
+              <li>16日〜末日のご利用分 → 翌1日に自動決済</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              パスポート
+            </h4>
+            <p>ご購入時に即時決済いたします。</p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              Meet &amp; Greet
+            </h4>
+            <p>
+              他のご利用料金と同じ締め日に決済いたします（Meet &amp; Greet 単独で即時決済は行いません）。
+            </p>
+
+            <PolicyCallout variant="info" title="領収書のご発行">
+              決済完了後、マイページから領収書をダウンロードいただけます。インボイス制度に対応した適格請求書としても発行可能です。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="payment-card-info" title="カード情報の管理">
+            <p>
+              ご登録いただいたクレジットカード情報は、当社が利用する決済代行事業者である <strong>Square</strong> が PCI DSS（カード業界のセキュリティ基準）に準拠した環境で管理しています。当社のサーバーには、カード情報そのものは保存されません。
+            </p>
+            <p>
+              カード情報の変更・削除は、いつでもマイページからお手続きいただけます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="payment-failure" title="決済が失敗した場合の取扱い">
+            <p>
+              自動決済が失敗した場合（カード有効期限切れ・限度額超過等）、当社からマイページのメッセージおよび登録メールアドレスへ、決済失敗のご通知をお送りします。
+            </p>
+            <p>
+              速やかにマイページからカード情報の更新、または別のカードへの変更をお願いいたします。決済が完了しない期間が続く場合、当社の判断でサービスのご提供を一時的に停止させていただくことがあります。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 04：キャンセル・スケジュール変更について ── */}
+        <PolicyChapter
+          number="04"
+          id="cancellation"
+          title="キャンセル・スケジュール変更について"
+          lead="ご予約のキャンセル・変更が必要になった際の取扱いをご案内します。早めのご連絡ほど、ご負担なくご対応いただけます。"
+          toc={[
+            { id: 'cancel-timeline', label: 'キャンセル料の基本' },
+            { id: 'cancel-by-plan', label: 'ご利用形態別の細則' },
+            { id: 'cancel-no-show', label: '無連絡キャンセルについて' },
+            { id: 'cancel-rush-fee', label: '当日・前日予約料金との関係' },
+            { id: 'cancel-by-us', label: '当社からサービスを中止する場合' },
+          ]}
+        >
+          <PolicySection id="cancel-timeline" title="キャンセル料の基本">
+            <p>
+              ご予約日の <strong>2日前 18:00</strong> 以降のキャンセルから、所定のキャンセル料が発生します。下図は基本のキャンセル料の段階です。
+            </p>
+
+            {/* 三段階タイムライン帯 */}
+            <div className="my-8">
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+                  〜 2日前 18:00
+                </div>
+                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+                  〜 前日 18:00
+                </div>
+                <div className="text-center text-[10px] md:text-xs font-bold tracking-wider text-text-primary/70">
+                  前日 18:00 以降・当日
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-1 rounded-xl overflow-hidden border border-sitter-main/15">
+                <div className="bg-linen py-6 md:py-8 text-center">
+                  <p className="text-xs md:text-sm text-text-primary/70 mb-1">
+                    キャンセル料
+                  </p>
+                  <p className="text-base md:text-xl font-bold text-brand-navy">
+                    無料
+                  </p>
+                </div>
+                <div className="bg-amber/25 py-6 md:py-8 text-center">
+                  <p className="text-xs md:text-sm text-text-primary/80 mb-1">
+                    サービス料金の
+                  </p>
+                  <p className="text-base md:text-xl font-bold text-brand-navy">
+                    50%
+                  </p>
+                </div>
+                <div className="bg-brand-navy py-6 md:py-8 text-center">
+                  <p className="text-xs md:text-sm text-white/80 mb-1">
+                    サービス料金の
+                  </p>
+                  <p className="text-base md:text-xl font-bold text-white">
+                    100%
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center mt-3 px-2">
+                <div className="text-[10px] text-text-primary/50">早め</div>
+                <div className="flex-1 mx-3 h-px bg-gradient-to-r from-sitter-main/30 via-amber/50 to-brand-navy/50" />
+                <div className="text-[10px] text-text-primary/50">直前</div>
+              </div>
+            </div>
+
+            <PolicyCallout variant="warning">
+              ご予約の変更やキャンセルが必要になった場合は、なるべくお早めにご連絡をお願いいたします。
+            </PolicyCallout>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              なぜ「2日前 18:00」を区切りにしているか
+            </h4>
+            <p>
+              cocoaruco では、ご予約の確定後、担当チームのスケジュール、他のご家庭との時間配分、お散歩ルートの調整、車両の手配など、複数の準備を進めています。直前のキャンセルが発生すると、これらの準備がそのまま空きとなり、当日の体制全体に影響が及ぶことがあります。
+            </p>
+            <p>
+              早めのご連絡をいただければ、別のお客様のキャンセル待ちの方にお声がけしたり、スタッフのシフトを柔軟に組み替えたりすることができます。「2日前 18:00」という区切りは、こうした調整に必要な時間として設定しています。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="cancel-by-plan" title="ご利用形態別の細則">
+            <p>
+              上記の基本に加えて、ご利用形態によって個別の取扱いがあります。
+            </p>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              定期コース（週3回以上）
+            </h4>
+            <ul>
+              <li>2週間の締め期間内で、2回までキャンセルが可能（締め日にカウントリセット）</li>
+              <li>個別のキャンセルによる日割り返金は行いません</li>
+              <li>振替は何回でも可能（振替先は当月＋3ヶ月先まで）</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              定期コース（週2回）
+            </h4>
+            <ul>
+              <li>キャンセルはお受けしておらず、振替のみのご対応となります</li>
+              <li>振替は何回でも可能（振替先は当月＋3ヶ月先まで）</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              パスポート
+            </h4>
+            <ul>
+              <li>2日前 18:00 までのキャンセルは、回数のクレジットとして返還されます（消化扱いになりません）</li>
+              <li>2日前 18:00 以降のキャンセルは、上記の基本テーブル（50%・100%）に従って消化扱いとなります</li>
+              <li>有効期限を超過した未消化分は失効となります</li>
+            </ul>
+
+            <h4 className="text-sm md:text-base font-bold text-brand-navy mt-6 mb-3">
+              スポット利用
+            </h4>
+            <p>上記「キャンセル料の基本」がそのまま適用されます。</p>
+          </PolicySection>
+
+          <PolicySection id="cancel-no-show" title="無連絡キャンセルについて">
+            <p>
+              事前のご連絡がないままサービスを行えなかった場合（玄関でお待ちしてもご連絡が取れない、入室方法の変更が共有されておらず入れない等）、サービス料金の <strong>100%</strong> を申し受けます。
+            </p>
+            <p>
+              また、当日訪問したスタッフの出張費、および各種キャンペーンや割引サービスの適用除外となる場合があります。
+            </p>
+
+            <PolicyCallout variant="warning">
+              無連絡キャンセルが続いた場合、当社の判断によりサービスのご提供を見合わせていただくことがあります。やむを得ないご事情があった場合も、必ず事後にお知らせください。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="cancel-rush-fee" title="当日・前日予約料金との関係">
+            <p>
+              前日 18:00 以降に新規ご予約をいただいた場合、特急手配のための当日・前日予約料金（+1,100円・税込）が加算されます。詳しくは
+              <a href="#pricing">02. 料金について</a>
+              の「当日・前日予約料金」をご覧ください。
+            </p>
+            <p>
+              この当日・前日予約料金については、ご予約後にキャンセルされた場合もご返金の対象外となります。特急手配のためのスタッフ調整がすでに行われているためです。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="cancel-by-us" title="当社からサービスを中止する場合">
+            <p>
+              以下のような不可抗力に該当する事情により、当社からサービスのご提供を中止させていただく場合があります。この場合、キャンセル料は発生せず、無償振替または料金のご返金にて対応いたします。
+            </p>
+            <ul>
+              <li>地震・台風・大雪・火災等の天災</li>
+              <li>感染症の流行による行政指導</li>
+              <li>公共交通機関の長時間の遮断</li>
+              <li>担当スタッフの急病等で、代替対応も困難な場合</li>
+              <li>その他、当社の業務遂行に支障をきたす事情</li>
+            </ul>
+            <p>
+              やむを得ずサービスを中止する場合、当社からただちにご連絡し、振替日程または返金についてご相談させていただきます。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 05〜14 は順次追加されます ── */}
 
       </article>
 
