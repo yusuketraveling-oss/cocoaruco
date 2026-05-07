@@ -9,15 +9,15 @@ type PolicyCalloutProps = {
 }
 
 const VARIANT_STYLES: Record<Variant, string> = {
-  info: 'bg-linen border-sitter-main/20',
-  warning: 'bg-amber/10 border-amber/40',
-  highlight: 'bg-sitter-main/5 border-sitter-main/30',
+  info: 'bg-info-bg border-info/30',
+  warning: 'bg-warning-bg border-warning/40',
+  highlight: 'bg-primary-subtle border-primary/30',
 }
 
 const VARIANT_TITLE_STYLES: Record<Variant, string> = {
-  info: 'text-sitter-main',
-  warning: 'text-amber',
-  highlight: 'text-sitter-main',
+  info: 'text-info',
+  warning: 'text-warning',
+  highlight: 'text-primary',
 }
 
 export function PolicyCallout({
@@ -26,13 +26,15 @@ export function PolicyCallout({
   children,
 }: PolicyCalloutProps) {
   return (
-    <div className={`rounded-2xl border p-5 md:p-6 ${VARIANT_STYLES[variant]}`}>
+    <div className={`rounded-lg border p-4 ${VARIANT_STYLES[variant]}`}>
       {title && (
-        <p className={`text-xs tracking-widest font-bold mb-3 uppercase ${VARIANT_TITLE_STYLES[variant]}`}>
+        <p
+          className={`text-xs font-medium tracking-wider uppercase mb-2 ${VARIANT_TITLE_STYLES[variant]}`}
+        >
           {title}
         </p>
       )}
-      <div className="text-sm text-text-primary/90 leading-loose">
+      <div className="text-sm text-text-primary leading-relaxed">
         {children}
       </div>
     </div>

@@ -1,9 +1,7 @@
 import Image from 'next/image'
-import { SitterHeader } from '@/components/layout/SitterHeader'
-import { SitterFooter } from '@/components/layout/SitterFooter'
-import GlassCard from '@/components/ui/GlassCard'
-import SectionHeader from '@/components/ui/SectionHeader'
-import CTAButton from '@/components/ui/CTAButton'
+import { GlassCard } from '@/components/ui/GlassCard'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { CTAButton } from '@/components/ui/CTAButton'
 import FAQAccordion from '@/components/petsitter/FAQAccordion'
 
 const areas = [
@@ -65,8 +63,6 @@ const steps = [
 export default function PetsitterPage() {
   return (
     <>
-      <SitterHeader />
-
       {/* 1. Hero */}
       <section className="relative min-h-screen bg-linen flex items-center">
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-32">
@@ -86,7 +82,7 @@ export default function PetsitterPage() {
               離れている間も、変わらない安心を。
             </p>
             <div>
-              <CTAButton href="#area" variant="primary" size="lg">
+              <CTAButton href="#area" variant="primary" size="default">
                 対応エリアを確認する
               </CTAButton>
             </div>
@@ -106,7 +102,7 @@ export default function PetsitterPage() {
       {/* 2. Philosophy */}
       <section className="py-32 bg-linen">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col gap-16">
-          <SectionHeader label="OUR PHILOSOPHY" title="私たちの想い" />
+          <SectionHeader eyebrow="OUR PHILOSOPHY" title="私たちの想い" />
           <GlassCard className="p-8 md:p-14">
             <div className="flex flex-col gap-6 max-w-3xl">
               <p className="text-xl font-bold text-navy">暮らしのリズムに、遊び心を</p>
@@ -138,9 +134,9 @@ export default function PetsitterPage() {
       <section id="area" className="py-32">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col gap-16">
           <SectionHeader
-            label="SERVICE AREA"
+            eyebrow="SERVICE AREA"
             title="対応エリア"
-            subtitle="お住まいのエリアを選択してください"
+            lead="お住まいのエリアを選択してください"
           />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {areas.map((area) => (
@@ -159,7 +155,7 @@ export default function PetsitterPage() {
       {/* 4. Why */}
       <section className="py-32 bg-taxi-cream">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col gap-16">
-          <SectionHeader label="WHY COCOARUCO" title="選ばれる理由" />
+          <SectionHeader eyebrow="WHY COCOARUCO" title="選ばれる理由" />
           <div className="grid md:grid-cols-2 gap-8">
             {reasons.map((r, i) => (
               <GlassCard key={i} className="p-8 flex flex-col gap-4">
@@ -177,7 +173,7 @@ export default function PetsitterPage() {
       {/* 5. Flow */}
       <section className="py-32 bg-linen">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col gap-16">
-          <SectionHeader label="HOW TO START" title="ご利用の流れ" />
+          <SectionHeader eyebrow="HOW TO START" title="ご利用の流れ" />
           <div className="hidden md:flex items-start">
             {steps.map((step, i) => (
               <div key={i} className="flex-1 flex items-start">
@@ -213,7 +209,7 @@ export default function PetsitterPage() {
       {/* 6. FAQ */}
       <section className="py-32 bg-linen">
         <div className="max-w-4xl mx-auto px-4 md:px-8 flex flex-col gap-16">
-          <SectionHeader label="FAQ" title="よくある質問" />
+          <SectionHeader eyebrow="FAQ" title="よくある質問" />
           <FAQAccordion />
         </div>
       </section>
@@ -235,7 +231,6 @@ export default function PetsitterPage() {
         </div>
       </section>
 
-      <SitterFooter />
     </>
   )
 }

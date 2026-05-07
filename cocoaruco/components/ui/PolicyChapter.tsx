@@ -23,36 +23,40 @@ export function PolicyChapter({
   children,
 }: PolicyChapterProps) {
   return (
-    <section id={id} className="scroll-mt-24 py-12 md:py-16 border-t border-sitter-main/10 first:border-t-0 first:pt-0">
-      {/* 章ヘッダー */}
-      <div className="mb-8 md:mb-10">
-        <p className="text-xs tracking-widest text-sitter-accent font-bold mb-3">
+    <section
+      id={id}
+      className="scroll-mt-20 py-10 border-t border-border-subtle first:border-t-0 first:pt-0"
+    >
+      <div className="mb-6">
+        <p className="text-xs font-medium text-text-secondary tracking-wider mb-2">
           {number}
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-brand-navy leading-tight tracking-wide">
+        <h2 className="text-lg font-medium text-text-primary leading-tight tracking-tight">
           {title}
         </h2>
         {lead && (
-          <p className="mt-4 text-sm md:text-base text-text-primary/70 leading-loose">
+          <p className="mt-3 text-sm text-text-secondary leading-relaxed">
             {lead}
           </p>
         )}
       </div>
 
-      {/* ミニ目次（3項目以上ある時のみ表示） */}
       {toc && toc.length >= 3 && (
-        <nav aria-label={`${title}の目次`} className="mb-10 p-5 md:p-6 rounded-2xl bg-linen border border-sitter-main/10">
-          <p className="text-[10px] tracking-widest text-sitter-accent font-bold mb-3 uppercase">
+        <nav
+          aria-label={`${title}の目次`}
+          className="mb-8 p-4 rounded-lg bg-surface border border-border-subtle"
+        >
+          <p className="text-[10px] font-medium tracking-wider text-text-muted uppercase mb-2">
             この章の目次
           </p>
-          <ul className="space-y-1.5">
+          <ul className="space-y-1">
             {toc.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
-                  className="text-sm text-brand-navy hover:text-sitter-main transition-colors inline-flex items-center gap-2"
+                  className="text-sm text-text-primary hover:text-primary transition-colors inline-flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 rounded-full bg-sitter-accent" />
+                  <span className="w-1 h-1 rounded-sm bg-primary/60" />
                   {item.label}
                 </a>
               </li>
@@ -61,8 +65,7 @@ export function PolicyChapter({
         </nav>
       )}
 
-      {/* 本文 */}
-      <div className="space-y-6">{children}</div>
+      <div className="space-y-5">{children}</div>
     </section>
   )
 }
