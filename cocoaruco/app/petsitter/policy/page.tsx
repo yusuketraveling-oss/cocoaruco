@@ -1291,7 +1291,227 @@ export default function PolicyPage() {
           </PolicySection>
         </PolicyChapter>
 
-        {/* ── 章 11〜14 は順次追加されます ── */}
+        {/* ── 章 11：賠償の取扱い ── */}
+        <PolicyChapter
+          number="11"
+          id="compensation"
+          title="賠償の取扱い"
+          lead="万が一の事故やトラブルが発生した場合の、私たちの責任と対応の範囲を、誠実に明示しておきます。ご家族とその子の暮らしを守るために、保険にも加入しています。"
+          toc={[
+            { id: 'compensation-insurance', label: '加入保険について' },
+            { id: 'compensation-scope', label: '賠償の対象' },
+            { id: 'compensation-exclusions', label: '賠償の対象外（免責事項）' },
+            { id: 'compensation-our-fault', label: '当社都合でサービス中止する場合' },
+          ]}
+        >
+          <PolicySection id="compensation-insurance" title="加入保険について">
+            <p>
+              cocoarucoは、ペット事業者向けの賠償責任保険に加入しております。業務中に発生した事故等に備えるためのものです。
+            </p>
+            <div className="my-5 rounded-lg bg-surface-sunken border border-border-subtle p-4">
+              <p className="text-[10px] font-medium text-text-secondary tracking-wider uppercase mb-2">
+                加入保険
+              </p>
+              <p className="text-sm text-text-primary">
+                ペット事業者向け賠償責任保険
+              </p>
+              <p className="text-xs text-text-secondary mt-1">
+                引受保険会社：三井住友海上火災保険株式会社
+              </p>
+            </div>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              賠償の上限
+            </h4>
+            <p>
+              当社が負う賠償の範囲は、加入する賠償責任保険の補償範囲を上限といたします。ただし、当社の故意または重大な過失による場合は、この限りではありません。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="compensation-scope" title="賠償の対象">
+            <p>
+              当社の故意または過失により、飼い主さま、その子、または飼い主さまの財産に損害を与えた場合、当社はその損害を賠償する責任を負います。具体的な対応は以下のとおりです。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              その子の事故・怪我
+            </h4>
+            <p>
+              当該回のサービス料金は全額免責（返金）とし、治療費等は保険補償範囲内で対応いたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              家財・建物への損害
+            </h4>
+            <p>
+              修理費用または時価相当額にて、保険補償範囲内で対応いたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              鍵の紛失
+            </h4>
+            <p>
+              建物入口・居宅のシリンダー交換、合鍵の新規作製を、当社の費用負担にて行います。付随する損害は、保険補償範囲内で対応いたします。詳しくは
+              <a href="#keys" className="text-primary underline underline-offset-2">06. 鍵のお預かりと入退室について</a>
+              の「紛失時の対応」もご覧ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="compensation-exclusions" title="賠償の対象外（免責事項）">
+            <p>
+              以下のものについては、当社の賠償の対象外とさせていただきます。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              その子の体に起因するもの
+            </h4>
+            <ul>
+              <li>その子の寿命・持病・特異体質に起因する事故・体調変化</li>
+              <li>その子の疾病に起因する損害</li>
+              <li>その子の習性による破壊行為（家具を噛む、爪で傷つける等）</li>
+              <li>お預かりしたその子同士の接触・諍いに起因する損害</li>
+              <li>その子の脱走・逃走に起因して発生した損害</li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              住居や設備に起因するもの
+            </h4>
+            <ul>
+              <li>経年劣化による設備の故障（ドアノブの脱落、網戸の外れ、家電の自然故障等）</li>
+              <li>通常のお世話を履行している場合の植物の枯死</li>
+            </ul>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              貴重品について
+            </h4>
+            <p>
+              骨董品、貴金属、現金、有価証券、美術品、その他の貴重品に関する損害については、賠償の対象外といたします。Meet &amp; Greetの際に、これらの貴重品はその子およびスタッフの動線外に保管いただくよう、ご相談させてください。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              不可抗力
+            </h4>
+            <p>
+              天災、感染症の流行、戦争・暴動、法令の制定・改廃、公共交通機関の遮断その他、当社の責に帰することのできない事由に起因する損害については、当社は責任を負いません。
+            </p>
+            <PolicyCallout variant="info">
+              上記は、賠償責任保険の一般的な免責事項に基づくものです。個別のご事情がある場合は、Meet &amp; Greetの際にご相談ください。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="compensation-our-fault" title="当社都合でサービス中止する場合">
+            <p>
+              当社の責に帰すべき事由によりサービスを中止する場合、飼い主さまにすでにお支払いいただいた料金のうち未消化分については、誠実にご相談のうえ、適切な方法により返還いたします。
+            </p>
+            <p>
+              災害等の不可抗力でサービスが中止となる場合の取扱いについては、
+              <a href="#cancellation" className="text-primary underline underline-offset-2">04. キャンセル・スケジュール変更</a>
+              の例外規定をご覧ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 12：ご家族・スタッフ双方の安心 ── */}
+        <PolicyChapter
+          number="12"
+          id="mutual-comfort"
+          title="ご家族・スタッフ双方の安心"
+          lead="cocoarucoのサービスは、ご家族と私たちの信頼関係の上に成り立っています。お互いに安心して長く続けるために、ご協力いただきたいことをまとめています。"
+          toc={[
+            { id: 'mutual-camera', label: 'ペットカメラ・録画機器について' },
+            { id: 'mutual-sns', label: 'SNS等でのスタッフ情報の取扱い' },
+            { id: 'mutual-contact', label: 'スタッフへのご連絡方法' },
+            { id: 'mutual-bite', label: 'スタッフの安全（咬傷時の対応）' },
+            { id: 'mutual-report', label: 'シッティングレポート' },
+            { id: 'mutual-supplies', label: '備品が不足していた場合' },
+          ]}
+        >
+          <PolicySection id="mutual-camera" title="ペットカメラ・録画機器について">
+            <p>
+              ペットカメラ・監視カメラをご自宅に設置されている場合は、ぜひご活用ください。お世話の様子を直接ご確認いただけることは、ご家族にとって大きな安心につながります。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              事前のお知らせをお願いします
+            </h4>
+            <p>
+              ただし、スタッフが訪問する空間に録画・撮影機器がある場合は、Meet &amp; Greetの際または事前に必ずお知らせください。事前のお知らせなく録画・撮影が行われていた場合、以降の訪問をお断りする場合があります。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              設置をお控えいただきたい場所
+            </h4>
+            <p>
+              トイレ、洗面所、脱衣所など、スタッフのプライベートな空間となりうる場所への録画・撮影機器の設置はご遠慮ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="mutual-sns" title="SNS等でのスタッフ情報の取扱い">
+            <p>
+              スタッフの顔、氏名、その他の個人情報を、SNS、口コミサイト等に投稿される場合は、必ず事前に本人の同意をご確認ください。
+            </p>
+            <p>
+              同意なく個人が特定される形での投稿が確認された場合、削除をお願いするとともに、状況によってはサービスを停止する場合があります。
+            </p>
+            <p>
+              スタッフの肖像と個人情報を守ることは、スタッフが安心して働き続けるための大切な約束です。何卒、ご協力をお願いいたします。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="mutual-contact" title="スタッフへのご連絡方法">
+            <p>
+              スタッフへのご連絡は、システム上のメッセージ機能、またはレポートへの返信をお使いください。
+            </p>
+            <p>
+              スタッフ個人の連絡先（個人の電話番号、SNS、LINE等）の取得や、勤務時間外でのご連絡・接触はご遠慮ください。当社のシステムを介したやり取りに統一することで、ご家族にもスタッフにも、健全な距離感の中で長く続くサービスをお届けできます。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="mutual-bite" title="スタッフの安全（咬傷時の対応）">
+            <p>
+              その子が人を咬む行動は、恐怖、痛み、ストレス、習性など、その子固有の要因によって生じることがあります。スタッフは動物福祉の観点から、適切な接し方を心がけておりますが、それでも咬傷が発生した場合は、安全確保のためお世話を一時中断し、飼い主さまへご報告いたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              咬傷が発生した場合の運用
+            </h4>
+            <p>
+              以降の訪問方法や対応範囲を見直させていただきます。繰り返し発生する場合や、安全なお世話が困難と判断される場合は、2名体制での訪問（2回分の料金が発生いたします）またはサービスの継続をお断りする場合があります。
+            </p>
+            <PolicyCallout variant="warning" title="申告漏れ・虚偽申告について">
+              事前にお知らせいただいていなかった咬傷歴や攻撃性が現場で明らかになった場合は、その回の料金が発生するとともに、スタッフが負った損害について、合理的な範囲でご請求させていただくことがあります。事前申告については、
+              <a href="#health" className="text-primary underline underline-offset-2">07. ペットの健康と安全</a>
+              をご覧ください。
+            </PolicyCallout>
+          </PolicySection>
+
+          <PolicySection id="mutual-report" title="シッティングレポート">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              レポートの頻度
+            </h4>
+            <p>
+              シッティングレポートは、1回のサービスにつき、サービス終了後に1通お届けします。お世話の様子を、写真と短い文章でまとめてお送りします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              お世話中のご連絡について
+            </h4>
+            <p>
+              お世話の時間は、その子と向き合うことに集中したいと考えております。お世話中の頻繁なやり取りは、ご遠慮いただけますと幸いです。
+            </p>
+            <p>
+              緊急のご用件は、cocoaruco総合窓口までご連絡ください。
+            </p>
+          </PolicySection>
+
+          <PolicySection id="mutual-supplies" title="備品が不足していた場合">
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              買物代行（オプション）
+            </h4>
+            <p>
+              フード、トイレ用品等が不足していた場合、ご連絡のうえ、買物代行（オプション・1,100円）にて対応いたします。
+            </p>
+            <h4 className="text-sm font-medium text-text-primary mt-5 mb-2">
+              立替購入について
+            </h4>
+            <p>
+              ご連絡が取れず、かつ、その子の健康・安全のために必要不可欠と判断される場合は、当社にて立替購入または持参等の対応を行い、後日、妥当な金額をご請求させていただくことがあります。
+            </p>
+            <p>
+              なお、急な食事の変更によって消化器症状等が出る場合があります。あらかじめご了承ください。
+            </p>
+          </PolicySection>
+        </PolicyChapter>
+
+        {/* ── 章 13〜14 は順次追加されます ── */}
 
       </article>
 
