@@ -3,9 +3,9 @@
 ## 技術スタック
 - Framework: Next.js 15 (App Router)
 - Language: TypeScript
-- Styling: Tailwind CSS
+- Styling: Tailwind CSS v4（CSS-based config / tailwind.config.ts は使用しない）
 - Icons: @phosphor-icons/react
-- Font: Zen Kaku Gothic New (Google Fonts)
+- Font: Noto Sans JP（Google Fonts / 将来 Adobe Fonts 移行予定）
 
 ## サイト構成
 cocoaruco.jp/                         ← ブランドトップ
@@ -269,6 +269,31 @@ cocoaruco.jp/mypage/
 - 締め期間：1〜15日 / 16〜末日
 - 予約カードを締め期間内で集計
 - 締め日に自動決済（Square Card on File API）
+
+## フォント設計（3変数化）
+
+CSS変数で3つの役割に分けて管理しています。将来 Adobe Fonts などへの差し替えは `app/globals.css` の `:root` ブロック内の3変数の値を書き換えるだけで全ページに反映されます。
+
+- `--font-body-family`：本文（body, p, span など）→ 現状 Noto Sans JP
+- `--font-display-family`：見出し（h1/h2/h3）→ 現状 Noto Sans JP（将来 Adobe Fonts 和文ディスプレイ書体予定）
+- `--font-en-family`：英字ラベル（eyebrow, SINCE 2013 等）→ 現状 Noto Sans JP（将来 Adobe Fonts 欧文書体予定）
+
+`@theme inline` で Tailwind クラスに対応：
+- `font-sans`：本文（デフォルト、body に適用済み）
+- `font-display`：見出しを意図的にディスプレイ書体にしたい時
+- `font-en`：英字ラベル
+
+注意：Tailwind v4 では `tailwind.config.ts` でのテーマ定義は不可。全トークンは `app/globals.css` の `@theme inline` で一元管理。
+
+## カラートークン
+
+すべて `app/globals.css` の `@theme inline` で定義。Tailwind ユーティリティとして自動生成されます（例: `--color-linen` → `bg-linen`, `text-linen`, `border-linen`）。
+
+色の追加・変更は `globals.css` の1箇所で完結します。
+
+コンポーネント実装時の注意：
+- `brand-navy` と `navy` は同値（#002E4E）。既存コンポーネントは `navy` を使用
+- `text-primary` と `ink` は同値（#333333）。既存コンポーネントは `ink` を使用
 
 ## Git運用ルール
 

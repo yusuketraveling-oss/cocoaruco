@@ -1,24 +1,41 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-zen-kaku);
+/* Font swap points — Adobe Fonts 移行時はここの var() を書き換えるだけで全ページ反映 */
+:root {
+  --font-body-family: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-display-family: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-en-family: var(--font-noto-sans-jp), -apple-system, 'Segoe UI', sans-serif;
+}
 
-  --color-brand-white: #FDFCF8;
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--font-body-family);
+  --font-display: var(--font-display-family);
+  --font-en: var(--font-en-family);
+
+  /* Brand Core */
+  --color-linen: #FDFCF8;
+  --color-navy: #002E4E;
   --color-brand-navy: #002E4E;
-  --color-brand-earth: #DBB35B;
-  --color-brand-moss: #354230;
-  --color-brand-sandstone: #BFA575;
+  --color-brand-navy-hover: #001f35;
+  --color-amber: #DBB35B;
+  --color-sand: #BFA575;
+  --color-text-primary: #333333;
+  --color-ink: #333333;
+
+  /* Service Colors (Desert Modern) */
   --color-sitter-main: #436573;
   --color-sitter-sub: #918C7E;
   --color-sitter-accent: #A47864;
+  --color-sitter-earth: #695650;
   --color-taxi-base: #59695F;
   --color-taxi-sub: #E8C7B6;
-  --color-wedding-nordic: #67869A;
-  --color-wedding-greige: #E7E0D8;
-  --color-text-primary: #333333;
+  --color-cream: #FBF3E6;
+  --color-taupe: #9D8877;
 }
 
 body {
+  font-family: var(--font-body-family);
   font-feature-settings: "palt";
   letter-spacing: 0.05em;
   background-color: #FDFCF8;
