@@ -254,3 +254,24 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 0.25em;
   font-weight: 500;
 }
+
+/* ─────────────────────────────────────────
+   Recruit-specific Tokens & Utilities
+   採用ページ専用トークン（白ベース + セージ・オリーブ）
+   ───────────────────────────────────────── */
+:root {
+  --color-recruit-bg: #ffffff;
+  --color-recruit-surface: #f3f6ed;
+  --color-recruit-surface-deep: #e8eedc;
+  --color-recruit-accent: #5a7038;
+  --color-recruit-accent-hover: #4a5e2e;
+  --color-recruit-border: rgb(90 112 56 / 0.15);
+  --color-recruit-text-accent: #5a7038;
+}
+
+.bg-recruit-base { background-color: var(--color-recruit-bg); }
+.bg-recruit-surface { background-color: var(--color-recruit-surface); }
+.bg-recruit-surface-deep { background-color: var(--color-recruit-surface-deep); }
+.text-recruit-accent { color: var(--color-recruit-text-accent); }
+.border-recruit { border-color: var(--color-recruit-border); }
+.hover\:text-recruit-accent:hover { color: var(--color-recruit-text-accent); }
