@@ -120,7 +120,7 @@ export default function GuidePage() {
         {/* ─── 02. ご予約のしくみ ─── */}
         <GuideSection id="reservation" number="02" title="ご予約のしくみ">
           <p>
-            ご予約はマイページから。毎月1日に翌月分のカレンダーが解放され、<span className="deco-fluorescent">当月＋3ヶ月先まで</span>ご予約いただけます。
+            ご予約はマイページから。毎月1日に翌月分のカレンダーが解放され、<span className="deco-text-olive">当月+3ヶ月先まで</span>ご予約いただけます。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -161,7 +161,7 @@ export default function GuidePage() {
           </Annotation>
 
           <p>
-            前日18時以降の新規ご予約には、特急手配のための前日・当日予約料金（<span className="deco-highlight">+1,100円・税込</span>）が加算されます。早めのご予約がおすすめです。
+            前日18時以降の新規ご予約には、特急手配のための前日・当日予約料金 <span className="deco-pill">+1,100円</span> が加算されます。早めのご予約がおすすめです。
           </p>
 
           <GuideLink href="/petsitter/policy#reservation">
@@ -235,7 +235,7 @@ export default function GuidePage() {
           </div>
 
           <p>
-            ご予約が3ヶ月以上空く期間がある場合、長期保管サービス（<span className="deco-highlight">年額2,200円・税込</span>）もご用意しています。
+            ご予約が3ヶ月以上空く期間がある場合、長期保管サービス <span className="deco-pill">年額2,200円</span> もご用意しています。
           </p>
           <Annotation>
             本店⇔スタッフ間の往復郵送料も含まれます。
@@ -253,7 +253,7 @@ export default function GuidePage() {
         {/* ─── 05. お支払いの流れ ─── */}
         <GuideSection id="payment" number="05" title="お支払いの流れ">
           <p>
-            お支払いは、ご登録のクレジットカードからの自動決済。<span className="deco-fluorescent">月2回の締め日</span>で、ご家族のお手間を最小限にしています。
+            お支払いは、ご登録のクレジットカードからの自動決済。<span className="deco-bold-emphasis">月2回の締め日</span>で、ご家族のお手間を最小限にしています。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -265,14 +265,14 @@ export default function GuidePage() {
                 <p className="text-xs text-text-secondary mb-1.5">前半利用分</p>
                 <p className="text-sm">
                   <span className="font-medium">1日〜15日</span> のご利用 →{' '}
-                  <span className="deco-highlight">翌16日に自動決済</span>
+                  <span className="deco-pill ml-1">翌16日に自動決済</span>
                 </p>
               </div>
               <div className="rounded-md bg-bg p-4">
                 <p className="text-xs text-text-secondary mb-1.5">後半利用分</p>
                 <p className="text-sm">
                   <span className="font-medium">16日〜末日</span> のご利用 →{' '}
-                  <span className="deco-highlight">翌1日に自動決済</span>
+                  <span className="deco-pill ml-1">翌1日に自動決済</span>
                 </p>
               </div>
             </div>
@@ -293,9 +293,9 @@ export default function GuidePage() {
             </li>
           </ul>
 
-          <p className="text-xs text-text-muted leading-relaxed">
-            決済が失敗した場合は、メールでご連絡いたします。カードの有効期限切れや残高不足の場合は、マイページからカード情報の更新をお願いいたします。
-          </p>
+          <Annotation>
+            決済が失敗した場合は、メールでご連絡いたします。カードの有効期限切れや残高不足の場合は、マイページから情報の更新をお願いいたします。
+          </Annotation>
 
           <GuideLink href="/petsitter/policy#payment">
             お支払いの詳細を見る
@@ -305,7 +305,7 @@ export default function GuidePage() {
         {/* ─── 06. キャンセル・スケジュール変更 ─── */}
         <GuideSection id="cancellation" number="06" title="キャンセル・スケジュール変更">
           <p>
-            ご予約のキャンセル・スケジュール変更は、<span className="deco-fluorescent">前日18時まで</span>マイページから受け付けております。
+            ご予約のキャンセル・スケジュール変更は、<span className="deco-bold-emphasis">前日18時まで</span>マイページから受け付けております。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -313,9 +313,9 @@ export default function GuidePage() {
               キャンセル料の発生タイミング
             </p>
             <div className="space-y-2.5">
-              <CancelRow tier="無料" tierTone="hint" timing="2日前 18:00まで" />
-              <CancelRow tier="50%" tierTone="note" timing="前日 18:00まで" />
-              <CancelRow tier="100%" tierTone="urgent" timing="前日 18:00以降・当日" />
+              <CancelRow tier="無料" timing="2日前 18:00まで" free />
+              <CancelRow tier="50%" timing="前日 18:00まで" />
+              <CancelRow tier="100%" timing="前日 18:00以降・当日" />
             </div>
           </div>
 
@@ -405,7 +405,7 @@ export default function GuidePage() {
           </div>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="deco-underline">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金<span className="deco-highlight">3,300円（税込）</span>。
+            <span className="deco-underline">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金 <span className="deco-pill">3,300円</span>。
           </p>
         </GuideSection>
       </article>
@@ -498,22 +498,22 @@ function ChannelCard({ icon: Icon, name, role, description }: ChannelCardProps) 
 
 type CancelRowProps = {
   tier: string
-  tierTone: 'hint' | 'note' | 'urgent'
   timing: string
+  free?: boolean
 }
 
-function CancelRow({ tier, tierTone, timing }: CancelRowProps) {
-  const decoClass = {
-    hint: 'deco-fluorescent',
-    note: 'deco-highlight',
-    urgent: 'deco-highlight',
-  }[tierTone]
-
+function CancelRow({ tier, timing, free = false }: CancelRowProps) {
   return (
-    <div className="flex items-center gap-3 py-2.5 px-3 rounded-md bg-bg text-text-primary">
-      <span className={`text-sm font-medium w-14 shrink-0 ${decoClass}`}>
-        {tier}
-      </span>
+    <div className="flex items-center gap-3 py-2.5 px-3 rounded-md bg-bg">
+      {free ? (
+        <span className="deco-text-olive text-sm font-medium w-16 shrink-0">
+          {tier}
+        </span>
+      ) : (
+        <span className="deco-pill w-16 text-center shrink-0">
+          {tier}
+        </span>
+      )}
       <span className="text-xs text-text-secondary">{timing}</span>
     </div>
   )
