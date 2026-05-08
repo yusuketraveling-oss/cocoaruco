@@ -180,3 +180,28 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ─────────────────────────────────────────
+   Guide-specific Marker Utilities
+   下半分だけ色を入れた蛍光ペン風ハイライト
+   ───────────────────────────────────────── */
+:root {
+  --color-marker-key:  rgb(232 219 195 / 0.55);  /* 薄いサンドベージュ — 重要キーワード */
+  --color-marker-note: rgb(232 207 156 / 0.55);  /* 薄いマスタード — 注意補足 */
+  --color-marker-hint: rgb(192 207 184 / 0.55);  /* 薄いセージ — ヒント・推奨 */
+}
+
+.marker-key {
+  background: linear-gradient(transparent 60%, var(--color-marker-key) 60%);
+  padding: 0 0.1em;
+}
+
+.marker-note {
+  background: linear-gradient(transparent 60%, var(--color-marker-note) 60%);
+  padding: 0 0.1em;
+}
+
+.marker-hint {
+  background: linear-gradient(transparent 60%, var(--color-marker-hint) 60%);
+  padding: 0 0.1em;
+}
