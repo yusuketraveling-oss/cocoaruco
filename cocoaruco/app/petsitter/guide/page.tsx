@@ -405,7 +405,7 @@ export default function GuidePage() {
           </div>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="deco-underline">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金 <span className="deco-pill">3,300円</span>。
+            <span className="deco-underline">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金 <span className="deco-bold-emphasis">3,300円</span>。
           </p>
         </GuideSection>
       </article>

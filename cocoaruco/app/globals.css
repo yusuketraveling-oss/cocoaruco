@@ -183,52 +183,60 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─────────────────────────────────────────
    Guide-specific Decoration Utilities
-   手描き書き込み風の6種パレット
+   手描き書き込み風の7種パレット
    ───────────────────────────────────────── */
 :root {
-  --color-deco-olive:              rgb(110 130 80);         /* 濃いオリーブ（文字色） */
-  --color-deco-olive-fluorescent:  rgb(155 175 100);        /* オリーブ斜線（蛍光ペン） */
-  --color-deco-charcoal:           rgb(50 50 50);           /* チャコール（下線） */
-  --color-deco-terracotta:         rgb(170 100 70);         /* 濃いテラコッタ（白抜きピル背景） */
-  --color-deco-terracotta-soft:    rgb(214 154 121 / 0.45); /* 薄テラコッタ（背景マーカー） */
-  --color-deco-terracotta-text:    rgb(140 90 65);          /* テラコッタ文字色 */
+  --color-deco-olive-fluorescent: #c5d18a;               /* 斜線マーカー：オリーブ系（完全不透明） */
+  --color-deco-olive-text: #5a7038;                      /* 文字色オリーブ：濃いめ */
+  --color-deco-charcoal: #2a2a2a;                        /* 下線：濃いチャコール */
+  --color-deco-terracotta: #aa6446;                      /* 白抜きピル背景：濃いテラコッタ */
+  --color-deco-terracotta-text: #7a4530;                 /* テラコッタ文字色：濃いめ */
+  --color-deco-terracotta-soft: rgb(214 154 121 / 0.5);  /* 背景マーカー：薄テラコッタ */
 }
 
-/* ─── 1. 文字色（軽い強調） ─── */
-.deco-text-olive {
-  color: var(--color-deco-olive);
+/* ─── 1. 斜線マーカー（蛍光ペン風・下半分にだけ） ─── */
+.deco-fluorescent {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-deco-olive-fluorescent) 0,
+    var(--color-deco-olive-fluorescent) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 100% 50%;
+  padding: 0 0.15em;
   font-weight: 500;
 }
 
+/* ─── 2. 下線（チャコール・text-decoration ベース） ─── */
+.deco-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--color-deco-charcoal);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+/* ─── 3. 文字色（オリーブ・軽い強調） ─── */
+.deco-text-olive {
+  color: var(--color-deco-olive-text);
+  font-weight: 500;
+}
+
+/* ─── 4. 文字色（テラコッタ・軽い強調） ─── */
 .deco-text-terracotta {
   color: var(--color-deco-terracotta-text);
   font-weight: 500;
 }
 
-/* ─── 2. 下線（手書き風細線） ─── */
-.deco-underline {
-  background-image: linear-gradient(
-    0deg,
-    var(--color-deco-charcoal) 0.1em,
-    transparent 0.1em
-  );
-  padding-bottom: 0.1em;
+/* ─── 5. 太字+色（テラコッタ・強い強調） ─── */
+.deco-bold-emphasis {
+  color: var(--color-deco-terracotta-text);
+  font-weight: 700;
 }
 
-/* ─── 3. 斜線マーカー（蛍光ペン風・オリーブ） ─── */
-.deco-fluorescent {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--color-deco-olive-fluorescent) 0,
-    var(--color-deco-olive-fluorescent) 2.5px,
-    transparent 2.5px,
-    transparent 5px
-  );
-  padding: 0.05em 0.2em;
-  font-weight: 500;
-}
-
-/* ─── 4. 白抜きピル（数値・期間） ─── */
+/* ─── 6. 白抜きピル（数値・期間を切り取って見せる） ─── */
 .deco-pill {
   background: var(--color-deco-terracotta);
   color: white;
@@ -240,13 +248,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.02em;
 }
 
-/* ─── 5. 太字+色（参照キーワード） ─── */
-.deco-bold-emphasis {
-  font-weight: 600;
-  color: var(--color-deco-terracotta-text);
-}
-
-/* ─── 6. 背景マーカー（薄テラコッタ） ─── */
+/* ─── 7. 背景マーカー（薄テラコッタ・覚えてほしい部分） ─── */
 .deco-highlight {
   background: var(--color-deco-terracotta-soft);
   padding: 0 0.25em;
