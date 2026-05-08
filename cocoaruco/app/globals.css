@@ -182,26 +182,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─────────────────────────────────────────
-   Guide-specific Marker Utilities
-   下半分だけ色を入れた蛍光ペン風ハイライト
+   Guide-specific Decoration Utilities
+   手描き書き込み風の3種装飾
    ───────────────────────────────────────── */
 :root {
-  --color-marker-key:  rgb(232 219 195 / 0.55);  /* 薄いサンドベージュ — 重要キーワード */
-  --color-marker-note: rgb(232 207 156 / 0.55);  /* 薄いマスタード — 注意補足 */
-  --color-marker-hint: rgb(192 207 184 / 0.55);  /* 薄いセージ — ヒント・推奨 */
+  --color-deco-fluorescent: rgb(155 175 120 / 0.55);  /* 薄いオリーブグリーン — 重要キーワード */
+  --color-deco-underline:   rgb(74 74 74 / 0.85);     /* チャコールグレー — 軽い強調・参照 */
+  --color-deco-highlight:   rgb(214 154 121 / 0.32);  /* 薄いテラコッタ — 数値・期間 */
 }
 
-.marker-key {
-  background: linear-gradient(transparent 60%, var(--color-marker-key) 60%);
-  padding: 0 0.1em;
+/* ─── 1. 斜線マーカー（蛍光ペン風） ─── */
+.deco-fluorescent {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-deco-fluorescent) 0,
+    var(--color-deco-fluorescent) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  padding: 0.05em 0.15em;
+  font-weight: 500;
 }
 
-.marker-note {
-  background: linear-gradient(transparent 60%, var(--color-marker-note) 60%);
-  padding: 0 0.1em;
+/* ─── 2. 下線（手書き風） ─── */
+.deco-underline {
+  background-image: linear-gradient(
+    0deg,
+    var(--color-deco-underline) 0.08em,
+    transparent 0.08em
+  );
+  padding-bottom: 0.08em;
 }
 
-.marker-hint {
-  background: linear-gradient(transparent 60%, var(--color-marker-hint) 60%);
-  padding: 0 0.1em;
+/* ─── 3. 背景マーカー（数値・覚えてほしい部分） ─── */
+.deco-highlight {
+  background-image: linear-gradient(
+    0deg,
+    var(--color-deco-highlight) 1.2em,
+    transparent 1.2em
+  );
+  padding: 0 0.2em;
+  font-weight: 500;
 }

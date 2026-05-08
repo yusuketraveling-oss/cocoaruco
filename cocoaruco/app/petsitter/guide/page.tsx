@@ -44,7 +44,7 @@ export default function GuidePage() {
             cocoarucoペットシッターサービスを、快適にご利用いただくための実用ガイドです。
           </p>
           <p className="mt-3 text-sm text-text-primary leading-relaxed">
-            ふだんのやりとりや、予約・お支払い・合鍵の取扱いなど、運用面のポイントを<span className="marker-hint">かゆいところに手が届く形</span>でまとめています。
+            ふだんのやりとりや、予約・お支払い・合鍵の取扱いなど、運用面のポイントを、かゆいところに手が届く形でまとめています。
           </p>
         </div>
       </section>
@@ -110,14 +110,17 @@ export default function GuidePage() {
           </div>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-hint">スタッフの個人連絡先（個人の電話番号やSNS）の取得・接触はご遠慮ください。</span>当社のシステムを介したやり取りに統一することで、ご家族にもスタッフにも、健全な距離感の中で長く続くサービスをお届けできます。
+            スタッフの個人連絡先（個人の電話番号やSNS）の取得・接触はご遠慮ください。当社のシステムを介したやり取りに統一することで、ご家族にもスタッフにも、健全な距離感の中で長く続くサービスをお届けできます。
           </p>
+          <Annotation>
+            健全な距離感を保ったまま、長くお付き合いするための運用です。
+          </Annotation>
         </GuideSection>
 
         {/* ─── 02. ご予約のしくみ ─── */}
         <GuideSection id="reservation" number="02" title="ご予約のしくみ">
           <p>
-            ご予約はマイページから。<span className="marker-key">毎月1日に翌月分のカレンダーが解放</span>され、最大4ヶ月先までご予約いただけます。
+            ご予約はマイページから。毎月1日に翌月分のカレンダーが解放され、<span className="deco-fluorescent">当月＋3ヶ月先まで</span>ご予約いただけます。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -151,11 +154,14 @@ export default function GuidePage() {
           </div>
 
           <p>
-            <span className="marker-hint">定期コースをご利用の方は、所定のスケジュールで翌月分の予約枠を当社が自動で確保します。</span>
+            <span className="deco-underline">定期コース</span>をご利用の方は、所定のスケジュールで翌月分の予約枠を当社が自動で確保します。
           </p>
+          <Annotation>
+            毎月の予約手続きの手間を、ご家族から取り除くため。
+          </Annotation>
 
           <p>
-            前日18時以降の新規ご予約には、<span className="marker-note">特急手配のための前日・当日予約料金（+1,100円・税込）</span>が加算されます。早めのご予約がおすすめです。
+            前日18時以降の新規ご予約には、特急手配のための前日・当日予約料金（<span className="deco-highlight">+1,100円・税込</span>）が加算されます。早めのご予約がおすすめです。
           </p>
 
           <GuideLink href="/petsitter/policy#reservation">
@@ -166,7 +172,7 @@ export default function GuidePage() {
         {/* ─── 03. シッティングレポート ─── */}
         <GuideSection id="report" number="03" title="シッティングレポート">
           <p>
-            お世話の様子を、写真と短い文章にまとめてお届けします。<span className="marker-hint">1回のサービスにつき、サービス終了後に1通</span>。
+            お世話の様子を、写真と短い文章にまとめてお届けします。<span className="deco-fluorescent">1回のサービスにつき、サービス終了後に1通</span>お届けします。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -189,14 +195,17 @@ export default function GuidePage() {
           </div>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-hint">お世話中のご家族とのやり取りは、ご遠慮いただけますと幸いです。</span>その子と向き合う時間を大切にしたいので、ご報告はサービス終了後にまとめてお届けします。緊急のご用件のみ、お電話でご連絡ください。
+            お世話中のご家族とのやり取りは、ご遠慮いただけますと幸いです。緊急のご用件のみ、お電話でご連絡ください。
           </p>
+          <Annotation>
+            その子と向き合う時間を大切にしたいので、ご報告はサービス終了後にまとめてお届けします。
+          </Annotation>
         </GuideSection>
 
         {/* ─── 04. 合鍵の管理 ─── */}
         <GuideSection id="keys" number="04" title="合鍵の管理">
           <p>
-            cocoarucoでは、<span className="marker-hint">合鍵を直接お預かりしない方法（スマートロック・キーボックス等）を第一の選択肢</span>としておすすめしています。
+            cocoarucoでは、<span className="deco-underline">合鍵を直接お預かりしない方法（スマートロック・キーボックス等）</span>を第一の選択肢としておすすめしています。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -226,11 +235,14 @@ export default function GuidePage() {
           </div>
 
           <p>
-            ご予約が3ヶ月以上空く期間がある場合、<span className="marker-key">長期保管サービス（年額2,200円・税込）</span>もご用意しています。本店⇔スタッフ間の往復郵送料も含まれます。
+            ご予約が3ヶ月以上空く期間がある場合、長期保管サービス（<span className="deco-highlight">年額2,200円・税込</span>）もご用意しています。
           </p>
+          <Annotation>
+            本店⇔スタッフ間の往復郵送料も含まれます。
+          </Annotation>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-note">合鍵のお預かり・お返しは、原則として対面で行います。スタッフの自宅での引き渡しは、防犯および担当スタッフの安全確保のため、お受けしておりません。</span>
+            合鍵のお預かり・お返しは、原則として対面で行います。スタッフの自宅での引き渡しは、防犯および担当スタッフの安全確保のため、お受けしておりません。
           </p>
 
           <GuideLink href="/petsitter/policy#keys">
@@ -241,7 +253,7 @@ export default function GuidePage() {
         {/* ─── 05. お支払いの流れ ─── */}
         <GuideSection id="payment" number="05" title="お支払いの流れ">
           <p>
-            お支払いは、ご登録のクレジットカードからの自動決済。<span className="marker-key">月2回の締め日</span>で、ご家族のお手間を最小限にしています。
+            お支払いは、ご登録のクレジットカードからの自動決済。<span className="deco-fluorescent">月2回の締め日</span>で、ご家族のお手間を最小限にしています。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -252,15 +264,15 @@ export default function GuidePage() {
               <div className="rounded-md bg-bg p-4">
                 <p className="text-xs text-text-secondary mb-1.5">前半利用分</p>
                 <p className="text-sm">
-                  <span className="font-medium">1日〜15日</span> のご利用 →
-                  <span className="marker-key ml-1">翌16日に自動決済</span>
+                  <span className="font-medium">1日〜15日</span> のご利用 →{' '}
+                  <span className="deco-highlight">翌16日に自動決済</span>
                 </p>
               </div>
               <div className="rounded-md bg-bg p-4">
                 <p className="text-xs text-text-secondary mb-1.5">後半利用分</p>
                 <p className="text-sm">
-                  <span className="font-medium">16日〜末日</span> のご利用 →
-                  <span className="marker-key ml-1">翌1日に自動決済</span>
+                  <span className="font-medium">16日〜末日</span> のご利用 →{' '}
+                  <span className="deco-highlight">翌1日に自動決済</span>
                 </p>
               </div>
             </div>
@@ -282,7 +294,7 @@ export default function GuidePage() {
           </ul>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-note">決済が失敗した場合は、メールでご連絡いたします。</span>カードの有効期限切れや残高不足の場合は、マイページからカード情報の更新をお願いいたします。
+            決済が失敗した場合は、メールでご連絡いたします。カードの有効期限切れや残高不足の場合は、マイページからカード情報の更新をお願いいたします。
           </p>
 
           <GuideLink href="/petsitter/policy#payment">
@@ -293,7 +305,7 @@ export default function GuidePage() {
         {/* ─── 06. キャンセル・スケジュール変更 ─── */}
         <GuideSection id="cancellation" number="06" title="キャンセル・スケジュール変更">
           <p>
-            ご予約のキャンセル・スケジュール変更は、<span className="marker-key">前日18時まで</span>マイページから受け付けております。
+            ご予約のキャンセル・スケジュール変更は、<span className="deco-fluorescent">前日18時まで</span>マイページから受け付けております。
           </p>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
@@ -308,7 +320,7 @@ export default function GuidePage() {
           </div>
 
           <p>
-            キャンセルではなく<span className="marker-hint">他の日への振替</span>であれば、振替元の日付が属する締め期間の料金として処理されます。
+            キャンセルではなく<span className="deco-underline">他の日への振替</span>であれば、振替元の日付が属する締め期間の料金として処理されます。
           </p>
 
           <p className="text-xs text-text-muted leading-relaxed">
@@ -323,8 +335,11 @@ export default function GuidePage() {
         {/* ─── 07. ご利用前のご準備 ─── */}
         <GuideSection id="preparation" number="07" title="ご利用前のご準備">
           <p>
-            ご利用日までに、ご家族の中で整理しておいていただきたいことをまとめました。<span className="marker-hint">Meet &amp; Greetがスムーズに進みます。</span>
+            ご利用日までに、ご家族の中で整理しておいていただきたいことをまとめました。
           </p>
+          <Annotation>
+            Meet &amp; Greet がスムーズに進みます。
+          </Annotation>
 
           <div className="my-6 rounded-lg border border-border-subtle bg-surface p-5">
             <p className="text-[10px] font-medium text-text-secondary tracking-wider uppercase mb-4">
@@ -353,9 +368,9 @@ export default function GuidePage() {
             </ul>
           </div>
 
-          <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-note">一度にすべてを完璧に整えていただく必要はありません。</span>Meet &amp; Greetでご一緒に確認させていただきますので、わかる範囲でご準備ください。
-          </p>
+          <Annotation>
+            一度にすべてを完璧に整えていただく必要はありません。Meet &amp; Greet でご一緒に確認させていただきますので、わかる範囲でご準備ください。
+          </Annotation>
 
           <GuideLink href="/petsitter/osaka/mgr">
             Meet &amp; Greetの詳細を見る
@@ -365,8 +380,11 @@ export default function GuidePage() {
         {/* ─── 08. ご利用までの流れ ─── */}
         <GuideSection id="flow" number="08" title="ご利用までの流れ">
           <p>
-            ご利用を始めるまでは、3つのステップです。<span className="marker-hint">お互いに納得した上で、サービスを始めます。</span>
+            ご利用を始めるまでは、3つのステップです。
           </p>
+          <Annotation>
+            お互いに納得した上で、サービスを始めます。
+          </Annotation>
 
           <div className="my-6 space-y-3">
             <FlowStep
@@ -387,7 +405,7 @@ export default function GuidePage() {
           </div>
 
           <p className="text-xs text-text-muted leading-relaxed">
-            <span className="marker-key">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金3,300円（税込）。
+            <span className="deco-underline">Meet &amp; Greetは初回ご利用前の必須ステップ</span>です。所要時間60分前後、料金<span className="deco-highlight">3,300円（税込）</span>。
           </p>
         </GuideSection>
       </article>
@@ -485,15 +503,15 @@ type CancelRowProps = {
 }
 
 function CancelRow({ tier, tierTone, timing }: CancelRowProps) {
-  const markerClass = {
-    hint: 'marker-hint',
-    note: 'marker-note',
-    urgent: 'marker-note',
+  const decoClass = {
+    hint: 'deco-fluorescent',
+    note: 'deco-highlight',
+    urgent: 'deco-highlight',
   }[tierTone]
 
   return (
     <div className="flex items-center gap-3 py-2.5 px-3 rounded-md bg-bg text-text-primary">
-      <span className={`text-sm font-medium w-14 shrink-0 ${markerClass}`}>
+      <span className={`text-sm font-medium w-14 shrink-0 ${decoClass}`}>
         {tier}
       </span>
       <span className="text-xs text-text-secondary">{timing}</span>
@@ -537,5 +555,25 @@ function GuideLink({ href, children }: GuideLinkProps) {
       {children}
       <ArrowRight size={12} weight="regular" />
     </Link>
+  )
+}
+
+type AnnotationProps = {
+  children: React.ReactNode
+}
+
+function Annotation({ children }: AnnotationProps) {
+  return (
+    <div className="mt-3 flex items-start gap-2 pl-3 border-l border-border-subtle">
+      <span
+        className="text-xs text-text-secondary shrink-0 select-none mt-px"
+        aria-hidden="true"
+      >
+        ✎
+      </span>
+      <p className="text-xs text-text-muted leading-relaxed italic">
+        {children}
+      </p>
+    </div>
   )
 }
